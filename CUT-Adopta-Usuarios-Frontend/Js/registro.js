@@ -160,7 +160,7 @@ document.getElementById('registerButton').addEventListener('click', async functi
 
     try {
         const fullName = `${apellidoPaterno} ${apellidoMaterno} ${nombres}`;
-        const response = await fetch('http://localhost:8000/crear_usuario', {
+        const response = await fetch(`${config.API_URL}/crear_usuario`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -169,7 +169,7 @@ document.getElementById('registerButton').addEventListener('click', async functi
                 email: email,
                 password: password,
                 confirm_password: confirmPassword,
-                name: fullName,
+                name: `${apellidoPaterno} ${apellidoMaterno} ${nombres}`,
                 role: "user",
                 register_date: new Date().toISOString().split('T')[0],
                 status: "true"
