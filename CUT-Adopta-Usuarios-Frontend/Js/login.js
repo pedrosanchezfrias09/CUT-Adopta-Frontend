@@ -93,6 +93,17 @@ document.getElementById('loginButton').addEventListener('click', async function(
     const spinner = document.getElementById('loginSpinner');
     const buttonText = this.querySelector('span');
 
+    // 🔹 **Validaciones antes de enviar la petición**
+    if (!email || !password) {
+        mostrarMensaje('Por favor, completa todos los campos.', 'error');
+        return;
+    }
+
+    if (!isValidEmail(email)) {
+        mostrarMensaje('Por favor, introduce un correo válido.', 'error');
+        return;
+    }
+
     try {
         spinner.style.display = 'inline-block';
         buttonText.textContent = 'Iniciando sesión...';
