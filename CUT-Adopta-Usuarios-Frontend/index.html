@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="Styles/login.css">
+
+    <!--Fuentes de Google Fonts-->
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kaushan+Script&display=swap" rel="stylesheet">
+    
+    
+
+    <title>Iniciar Sesión</title>
+</head>
+<body class="cuerpoPagina">
+    
+    <div class="contenedor_1">
+
+        <button class="inicio">← Atrás</button>
+        <script>
+            document.querySelector('.inicio').addEventListener('click', function() {
+                window.history.back();
+            });
+        </script>
+        <button class="menu-toggle"><img id="1" src="Assets/menu.png" alt="menu"></button>
+
+    </div>
+
+    <div class="overlay"></div>
+    <!-- Menú desplegable -->
+    <nav class="menu-container">
+        <div class="menu-item">
+            <button class="menu-btn">Tema</button>
+            <div class="submenu">
+                <a href="loginOscuro.html">Oscuro</a>
+                <a href="login.html">Claro</a>
+            </div>
+        </div>
+        
+        <div class="menu-item">
+            <p style="font-size: 1.6rem; color: black; font-weight: bold;">Traducir</p>
+            <div id="google_translate_element"></div>            
+        </div>
+    </nav>
+    <script src="https://translate.google.com/translate_a/element.js?cb=initTraduccion"></script>
+
+    <!-- Mi parte del código empieza aquí-->
+    <div>
+        <p class="bienvenida">Bienvenido a</p>
+        <h1 class="titulo">CUT-Adopta</h1>
+    </div>
+
+    <div class="contenedorFormulario">
+
+        <div class="caja1">
+
+            <img src="Assets/Husky 1.1.png" alt="Husky" class="imagen">
+
+        </div>
+
+        <div class="caja2">
+                    
+            <!-- En login.html, modifica los inputs -->
+            <p class="argumentos">Email:</p>
+            <input type="email" id="loginEmail" class="entradaDatos" required maxlength="200">
+
+            <p class="argumentos">Contraseña:</p>
+            <input type="password" id="loginPassword" class="entradaDatos">
+            <button type="button" class="toggle-password">
+                <ion-icon name="eye-outline"></ion-icon>
+            </button>
+            <div id="mensajeContainer" class="mensaje"></div>
+
+            <button class="botonEntrar" id="loginButton">
+                <span>Entrar</span>
+                <div class="spinner" id="loginSpinner"></div>
+            </button>
+
+            <button class="contraseña">¿Olvidaste tu contraseña?</button>
+            
+
+        </div>
+
+    </div>
+
+    <div class="piePagina">
+
+        <p class="cuenta">¿No tienes una cuenta? <button class="registro"> REGÍSTRATE</button></p>
+        <script>
+            document.querySelector('.registro').addEventListener('click', function() {
+                window.location.href = 'Pages/registro.html';
+            });
+        </script>
+        <img id="3" src="Assets/Huella blanca.png" alt="Huella blanca">        
+
+    </div>
+
+    <div class="footer">
+        <ul class="social-icon">
+        <li class="social-icon__item"><a class="social-icon__link" href="#">
+            <ion-icon name="logo-facebook"></ion-icon>
+            </a></li>
+        <li class="social-icon__item"><a class="social-icon__link" href="#">
+            <ion-icon name="logo-twitter"></ion-icon>
+            </a></li>
+        <li class="social-icon__item"><a class="social-icon__link" href="#">
+            <ion-icon name="logo-linkedin"></ion-icon>
+            </a></li>
+        <li class="social-icon__item"><a class="social-icon__link" href="#">
+            <ion-icon name="logo-instagram"></ion-icon>
+            </a></li>
+        </ul>
+        <ul class="menu">
+        <li class="menu__item"><a class="menu__link" href="#">Arriba</a></li>
+        <li class="menu__item"><a class="menu__link" href="#">Acerca de</a></li>
+        <li class="menu__item"><a class="menu__link" href="#">Contáctanos</a></li>
+    
+        </ul>
+        <p>&copy;2024 Universidad de Guadalajara | Todos los derechos reservados</p>
+    </div>
+
+    <!-- Footer -->
+    
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
+  <script src="JS/login.js" defer></script>
+  <script src="/JS/config.js"></script>
+
+
+</body>
+</html>
