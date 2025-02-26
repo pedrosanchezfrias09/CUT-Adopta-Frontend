@@ -41,6 +41,7 @@ document.addEventListener("cargar_contenido", async function () {
             method: "GET",
             headers: {
                 "Authorization": `Bearer ${userToken}`,
+                "Accept": "application/json",
                 "Content-Type": "application/json"
             }
         });
@@ -69,5 +70,5 @@ document.addEventListener("cargar_contenido", async function () {
     } catch (error) {
         console.error("Error al cargar el perfil del usuario:", error);
     }
-})
+});
 
