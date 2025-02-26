@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="PerfilUsuarioStyleSheetInputs.css">
-    <!-- <link rel="stylesheet" href="../Styles/PerfilUsuario.css"> -->
+    <link rel="stylesheet" href="../Styles/PerfilUsuarioStyleSheetInputs.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.bundle.min.js">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js">
@@ -35,19 +35,19 @@
 
                     <div class="form-group">
                         <label class="ApartadoEnNegritas" for="fullName">Nombres y apellidos</label>
-                        <input type="text" id="fullName" placeholder="[Nombre completo]">
+                        <input type="text" id="fullName" placeholder="[Nombre completo]" disabled>
     
                     </div>
                     <div class="form-group">
                         <label class="ApartadoEnNegritas" for="birthDate">Fecha de nacimiento</label>
-                        <input type="date" id="birthDate" placeholder="[Fecha de nacimiento]">
+                        <input type="date" id="birthDate" placeholder="[Fecha de nacimiento]" disabled>
                     </div>
                     <div class="form-group">
                         <label class="ApartadoEnNegritas" for="registrationDate">Fecha de registro</label>
-                        <input type="date" id="registrationDate" placeholder="[Fecha de registro]">
+                        <input type="date" id="registrationDate" placeholder="[Fecha de registro]" disabled>
                     </div>
                     <div class="botonEditar">
-                        <button type="button" class="BotonEditarPerfil">Guardar</button>
+                        <button type="button" class="BotonEditarPerfil">Editar</button>
                     </div>
 
                 </div>
@@ -63,11 +63,11 @@
                     <div class="caja">
 
                         <label class="ApartadoEnNegritas" for="email">Email</label>
-                        <input type="email" id="email" placeholder="[Email]">
+                        <input type="email" id="email" placeholder="[Email]" disabled>
                     </div>
                   <div class="caja2">
                     <label class="ApartadoEnNegritas" for="phone">Teléfono</label>
-                    <input type="tel" id="phone" placeholder="[Teléfono]">
+                    <input type="tel" id="phone" placeholder="[Teléfono]" disabled>
                   </div>
                   
                 </div>
@@ -77,25 +77,25 @@
                         <h3>Dirección</h3>
                         <hr>
                         <label class="ApartadoEnNegritas" for="state">Estado</label>
-                        <input type="text" id="state" placeholder="[Estado]">
+                        <input type="text" id="state" placeholder="[Estado]" disabled>
                         <label class="ApartadoEnNegritas" for="ciudad">Ciudad</label>
-                        <input type="text" id="state" placeholder="[Ciudad]">
+                        <input type="text" id="city" placeholder="[Ciudad]" disabled>
                         
                         <label  class="ApartadoEnNegritas"  for="street">Calle</label>
-                        <input type="text" id="street" placeholder="[Calle]">
+                        <input type="text" id="street" placeholder="[Calle]" disabled>
                         <label  class="ApartadoEnNegritas"  for="colony">Colonia</label>
-                        <input type="text" id="colony" placeholder="[Colonia]">
+                        <input type="text" id="colony" placeholder="[Colonia]" disabled>
                         <label  class="ApartadoEnNegritas"  for="postalCode">Código Postal</label>
-                        <input type="text" id="postalCode" placeholder="[Código Postal]">
+                        <input type="text" id="postalCode" placeholder="[Código Postal]" disabled>
                         <label  class="ApartadoEnNegritas"  for="houseNumber">Número de Casa</label>
-                        <input type="text" id="houseNumber" placeholder="[Número de Casa]">
+                        <input type="text" id="houseNumber" placeholder="[Número de Casa]" disabled>
                     </div>
                     <div class="Derecha">
                         <h3>Cuenta</h3>
                         <hr>
                         <div class="containerIconoes">
                         <label class="ApartadoEnNegritas" for="accountStatus">Estado de Cuenta</label>
-                        <input type="text" id="accountStatus" placeholder="[Estado de Cuenta]">
+                        <input type="text" id="accountStatus" placeholder="[Estado de Cuenta]" disabled>
                         <div class="social-icons">
                             <a href="https://www.facebook.com" target="_blank">
                                 <i class="mdi mdi-facebook"></i>
@@ -116,5 +116,5 @@
 
 
 </body>
-
+    <script src="../Js/perfil.js"></script>
 </html>
