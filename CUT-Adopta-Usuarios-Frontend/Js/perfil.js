@@ -1,6 +1,6 @@
 document.addEventListener("cargar_contenido", async function () {
     const API_URL = "https://pedrocutadopta.onrender.com";
-    const userEmail = localStorage.getItem("userEmail");
+    const userEmail = localStorage.getItem("email");
 
     if (! userEmail){
         alert("Usuario No Encontrado");
