@@ -64,7 +64,12 @@ function editar(){
     document.getElementById("botonEditar").textContent = "Guardar";
 }  
 
-async function actulizarPerfil() {
+async function actualizarPerfil() {
+    document.getElementById("botonEditar").addEventListener("click", () => {
+        if(document.getElementById("botonEditar").textContent === "Guardar"){
+            actualizarPerfil(cuerpo);
+        }
+    });
     let birth = document.getElementById("birthDate").value 
     let phone = document.getElementById("phone").value
     let state = document.getElementById("state").value
