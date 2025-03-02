@@ -85,13 +85,17 @@ async function actulizarPerfil() {
         "postal_code": pc, 
     }
       
-    await fetch(`${API_URL}/actualizar_usuario`, {
-        body: JSON.stringify(cuerpo),
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        }
-    });
+    try {
+        await fetch(`${API_URL}/actualizar_usuario`, {
+            body: JSON.stringify(cuerpo),
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        });
+    } catch( error) {
+        console.error(error);
+    }
 
     window.location.reload();
 }
