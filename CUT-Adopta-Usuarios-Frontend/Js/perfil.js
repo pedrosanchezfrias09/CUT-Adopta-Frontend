@@ -1,7 +1,7 @@
+const API_URL = "https://pedrocutadopta.onrender.com";
+
 // Script para llenar los inputs del perfil con la información del usuario
 document.addEventListener("DOMContentLoaded", async function () {
-    const API_URL = "https://pedrocutadopta.onrender.com";
-    
     // Obtener el usuario desde localStorage y extraer el email y token
     const userData = JSON.parse(localStorage.getItem("userData"));
     const userToken = localStorage.getItem("token");
