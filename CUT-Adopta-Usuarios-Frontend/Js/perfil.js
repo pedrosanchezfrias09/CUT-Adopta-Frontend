@@ -91,6 +91,8 @@ async function actualizarPerfil() {
         city: document.getElementById("city").value || null
     };
 
+    cuerpo.cellphone = cuerpo.cellphone ? parseInt(cuerpo.cellphone, 10): null;
+
     console.log('Datos del perfil a enviar:', cuerpo);
 
     try {
