@@ -1,4 +1,4 @@
-const API_URL = "https://pedrocutadopta.onrender.com";
+let API_URL = "https://pedrocutadopta.onrender.com";
 
 // Script para llenar los inputs del perfil con la información del usuario
 document.addEventListener("DOMContentLoaded", async function () {
@@ -71,6 +71,8 @@ document.getElementById("botonEditar").addEventListener("click", () => {
 });
 
 async function actualizarPerfil() {
+
+    console.log('Actualizando perfil')
 
     let birth = document.getElementById("birthDate").value 
     let phone = document.getElementById("phone").value
