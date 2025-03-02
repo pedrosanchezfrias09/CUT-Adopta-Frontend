@@ -97,7 +97,7 @@ async function actualizarPerfil() {
     const userToken = localStorage.getItem("token");
       
     try {
-        await fetch(`${API_URL}/actualizar_usuario`, {
+        let response = await fetch(`${API_URL}/actualizar_usuario`, {
             body: JSON.stringify(cuerpo),
             method: 'POST',
             headers: {
@@ -106,7 +106,13 @@ async function actualizarPerfil() {
                 "Accept": "application/json",
             }
         });
-        window.location.reload();
+        if (!response.ok) {
+            let infoError = await response.json();
+            console.error(`error actualizando perfil ${infoError}`);
+        }
+        else {
+            window.location.reload();
+        }
     } catch( error) {
         console.error(error);
     }
