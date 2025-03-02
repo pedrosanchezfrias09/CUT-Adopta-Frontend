@@ -96,6 +96,8 @@ async function actualizarPerfil() {
         "postal_code": pc, 
     }
 
+    console.log('cuerpo', cuerpo);
+
     const userToken = localStorage.getItem("token");
       
     try {
