@@ -102,7 +102,8 @@ async function actualizarPerfil() {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
-                'Authorization': `Bearer ${userToken}`
+                'Authorization': `Bearer ${userToken}`,
+                "Accept": "application/json",
             }
         });
         window.location.reload();
