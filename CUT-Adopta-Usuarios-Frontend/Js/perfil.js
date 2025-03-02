@@ -66,7 +66,7 @@ function editar(){
 
 document.getElementById("botonEditar").addEventListener("click", () => {
     if(document.getElementById("botonEditar").textContent === "Guardar"){
-        actualizarPerfil(cuerpo);
+        actualizarPerfil();
     }
 });
 
