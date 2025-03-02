@@ -74,16 +74,18 @@ async function actualizarPerfil() {
 
     console.log('Actualizando perfil')
 
-    let birth = document.getElementById("birthDate").value 
-    let phone = document.getElementById("phone").value
-    let state = document.getElementById("state").value
-    let street = document.getElementById("street").value
-    let colony = document.getElementById("colony").value
-    let pc = document.getElementById("postalCode").value
-    let hNumber = document.getElementById("houseNumber").value
-    let city = document.getElementById("city").value
+    let email = JSON.parse(localStorage.getItem("userData")).email;
+    let birth = document.getElementById("birthDate").value;
+    let phone = document.getElementById("phone").value;
+    let state = document.getElementById("state").value;
+    let street = document.getElementById("street").value;
+    let colony = document.getElementById("colony").value;
+    let pc = document.getElementById("postalCode").value;
+    let hNumber = document.getElementById("houseNumber").value;
+    let city = document.getElementById("city").value;
 
     let cuerpo = { 
+        "email": email,
         "birth_date": birth,
         "cellphone": phone,
         "street": street,
@@ -109,8 +111,6 @@ async function actualizarPerfil() {
         if (!response.ok) {
             let infoError = await response.json();
             console.error(`error actualizando perfil ${infoError}`);
-        }
-        else {
         }
     } catch( error) {
         console.error(error);
