@@ -55,3 +55,15 @@ document.addEventListener("DOMContentLoaded", async function () {
     }
 });
 
+//Boton editar
+
+function editar(){
+    const inputs = document.querySelectorAll("input[disabled]");
+    inputs.forEach(input => input.removeAttribute("disabled"));
+
+    document.getElementById("botonEditar").textContent = "Guardar";
+    //var Boolean editando = true;
+}  
+
+
+
