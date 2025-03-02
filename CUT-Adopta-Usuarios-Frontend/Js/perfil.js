@@ -85,7 +85,7 @@ async function actulizarPerfil() {
         "postal_code": pc, 
     }
       
-    await fetch($`{API_URL}/actualizar_usuario`, {
+    await fetch(`${API_URL}/actualizar_usuario`, {
         body: JSON.stringify(cuerpo),
         method: 'POST',
         headers: {
