@@ -60,16 +60,18 @@ document.addEventListener("DOMContentLoaded", async function () {
 
 function editar(){
     const inputs = document.querySelectorAll("input[disabled]");
+    const botonEditar = document.getElementById("botonEditar");
     inputs.forEach(input => input.removeAttribute("disabled"));
 
-    document.getElementById("botonEditar").textContent = "Guardar";
-}  
 
-document.getElementById("botonEditar").addEventListener("click", () => {
-    if(document.getElementById("botonEditar").textContent === "Guardar"){
+    if (botonEditar.textContent === "Editar") {
+        botonEditar.textContent = "Guardar";
+    }
+    else if (botonEditar.textContent === "Guardar") {
         actualizarPerfil();
     }
-});
+}  
+
 
 async function actualizarPerfil() {
     console.log('Actualizando perfil');
@@ -107,6 +109,7 @@ async function actualizarPerfil() {
             console.error(`Error actualizando perfil: ${infoError}`);
         } else {
             console.log('Perfil actualizado correctamente');
+            window.location.reload();
         }
     } catch (error) {
         console.error('Error en la solicitud:', error);
