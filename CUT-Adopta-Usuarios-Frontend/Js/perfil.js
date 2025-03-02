@@ -100,11 +100,11 @@ async function actualizarPerfil() {
                 'Content-Type': 'application/json'
             }
         });
+        window.location.reload();
     } catch( error) {
         console.error(error);
     }
 
-    window.location.reload();
 }
 
 
