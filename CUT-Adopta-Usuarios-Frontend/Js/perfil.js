@@ -62,8 +62,39 @@ function editar(){
     inputs.forEach(input => input.removeAttribute("disabled"));
 
     document.getElementById("botonEditar").textContent = "Guardar";
-    //var Boolean editando = true;
 }  
+
+async function actulizarPerfil() {
+    let birth = document.getElementById("birthDate").value 
+    let phone = document.getElementById("phone").value
+    let state = document.getElementById("state").value
+    let street = document.getElementById("street").value
+    let colony = document.getElementById("colony").value
+    let pc = document.getElementById("postalCode").value
+    let hNumber = document.getElementById("houseNumber").value
+    let city = document.getElementById("city").value
+
+    let cuerpo = { 
+        "birth_date": birth,
+        "cellphone": phone,
+        "street": street,
+        "house_number": hNumber,
+        "suburb": colony,
+        "city": city,
+        "state": state,
+        "postal_code": pc, 
+    }
+      
+    await fetch($`{API_URL}/actualizar_usuario`, {
+        body: JSON.stringify(cuerpo),
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    });
+
+    window.location.reload();
+}
 
 
 
