@@ -111,7 +111,6 @@ async function actualizarPerfil() {
             console.error(`error actualizando perfil ${infoError}`);
         }
         else {
-            window.location.reload();
         }
     } catch( error) {
         console.error(error);
