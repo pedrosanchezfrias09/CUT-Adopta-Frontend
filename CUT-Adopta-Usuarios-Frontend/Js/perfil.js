@@ -93,13 +93,16 @@ async function actualizarPerfil() {
         "state": state,
         "postal_code": pc, 
     }
+
+    const userToken = localStorage.getItem("token");
       
     try {
         await fetch(`${API_URL}/actualizar_usuario`, {
             body: JSON.stringify(cuerpo),
             method: 'POST',
             headers: {
-                'Content-Type': 'application/json'
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${userToken}`
             }
         });
         window.location.reload();
