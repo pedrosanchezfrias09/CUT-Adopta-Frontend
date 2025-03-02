@@ -109,6 +109,7 @@ async function actualizarPerfil() {
         if (!response.ok) {
             const infoError = await response.json();
             console.error(`Error actualizando perfil: ${infoError}`);
+            console.error(`Json que no se envio`, cuerpo)
         } else {
             console.log('Perfil actualizado correctamente');
             window.location.reload();
