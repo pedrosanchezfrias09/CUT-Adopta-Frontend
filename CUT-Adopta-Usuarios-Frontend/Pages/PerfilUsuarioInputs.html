@@ -67,7 +67,7 @@
                     </div>
                   <div class="caja2">
                     <label class="ApartadoEnNegritas" for="phone">Teléfono</label>
-                    <input type="tel" id="phone" placeholder="[Teléfono]" disabled>
+                    <input type="tel" id="phone" placeholder="[Teléfono]" disabled maxlength="10" pattern="\d{10}" oninput="this.value = this.value.replace(/\D/g, '')">
                   </div>
                   
                 </div>
