@@ -110,7 +110,7 @@ async function actualizarPerfil() {
         });
         if (!response.ok) {
             let infoError = await response.json();
-            console.error(`error actualizando perfil ${infoError}`);
+            console.error(`error actualizando perfil ${infoError.message}`);
         }
     } catch( error) {
         console.error(error);
