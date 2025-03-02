@@ -50,6 +50,7 @@ document.addEventListener("DOMContentLoaded", async function () {
         document.getElementById("postalCode").value = safeValue(userData.postal_code);
         document.getElementById("houseNumber").value = safeValue(userData.house_number);
         document.getElementById("accountStatus").value = safeValue(userData.status);
+        document.getElementById("city").value = safeValue(userData.city);
     } catch (error) {
         console.error("Error al cargar el perfil del usuario:", error);
     }
