@@ -71,54 +71,43 @@ document.getElementById("botonEditar").addEventListener("click", () => {
 });
 
 async function actualizarPerfil() {
+    console.log('Actualizando perfil');
 
-    console.log('Actualizando perfil')
-
-    let email = JSON.parse(localStorage.getItem("userData")).email;
-    let birth = document.getElementById("birthDate").value;
-    let phone = document.getElementById("phone").value;
-    let state = document.getElementById("state").value;
-    let street = document.getElementById("street").value;
-    let colony = document.getElementById("colony").value;
-    let pc = document.getElementById("postalCode").value;
-    let hNumber = document.getElementById("houseNumber").value;
-    let city = document.getElementById("city").value;
-
-    let cuerpo = { 
-        "email": email,
-        "birth_date": birth,
-        "cellphone": phone,
-        "street": street,
-        "house_number": hNumber,
-        "suburb": colony,
-        "city": city,
-        "state": state,
-        "postal_code": pc, 
-    }
-
-    console.log('cuerpo', cuerpo);
-
+    const email = JSON.parse(localStorage.getItem("userData")).email;
     const userToken = localStorage.getItem("token");
-      
+
+    let cuerpo = {
+        email,
+        birth_date: document.getElementById("birthDate").value || null,
+        cellphone: document.getElementById("phone").value || null,
+        state: document.getElementById("state").value || null,
+        street: document.getElementById("street").value || null,
+        suburb: document.getElementById("colony").value || null,
+        postal_code: document.getElementById("postalCode").value || null,
+        house_number: document.getElementById("houseNumber").value || null,
+        city: document.getElementById("city").value || null
+    };
+
+    console.log('Datos del perfil a enviar:', cuerpo);
+
     try {
         let response = await fetch(`${API_URL}/actualizar_usuario`, {
-            body: JSON.stringify(cuerpo),
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
                 'Authorization': `Bearer ${userToken}`,
                 "Accept": "application/json",
-            }
+            },
+            body: JSON.stringify(cuerpo)
         });
+
         if (!response.ok) {
-            let infoError = await response.json();
-            console.error(`error actualizando perfil ${infoError.message}`);
+            const infoError = await response.json();
+            console.error(`Error actualizando perfil: ${infoError.message}`);
+        } else {
+            console.log('Perfil actualizado correctamente');
         }
-    } catch( error) {
-        console.error(error);
-    }
-
+    } catch (error) {
+        console.error('Error en la solicitud:', error);
+    }
 }
-
-
-
