@@ -117,7 +117,7 @@ function eliminarPerrito() {
     .then(mensaje => {
         alert(mensaje); // Mostrar el mensaje de éxito
         // Redirigir a la página principal o a otra página después de eliminar
-        window.location.href = "./galeriaDeInicioLog.html";
+        window.location.href = "../Pages/galeriaDeInicioLog.html";
     }) // Ruta relativa al archivo HTML
     .catch(error => {
         console.error("Error al eliminar el perrito:", error);

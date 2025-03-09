@@ -73,12 +73,12 @@
                 // Agregar el pet-card al contenedor temporal
                         tempContainer += `
             <div class="pet-card">
-                <img src="./img/PastorAleman.jpg" alt="${perro.nombre}">
+                <img src="../Assets/PastorAleman.jpg" alt="${perro.nombre}">
                 <div class="pet-info">
                     <div class="pet-header">
                         <h3 class="pet-name">${perro.nombre}</h3>
                         <span>${perro.sexo === 'Femenino' ? '♀️' : '♂️'}</span>
-                    </div>
+                    </div>  
                     <p class="pet-description">${perro.descripcion}</p>
                     <a href="./PerroInfoDetallada.html?id=${perro.id}" class="ver-detalles">Ver detalles</a>
                 </div>
