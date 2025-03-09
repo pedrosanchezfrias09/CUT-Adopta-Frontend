@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="CrearPerro.css">
+    <!-- <link rel="stylesheet" href="../Styles/PerfilUsuario.css"> -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.bundle.min.js">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js">
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/MaterialDesign-Webfont/3.6.95/css/materialdesignicons.css">
+
+    <title>Document</title>
+</head>
+
+<body>
+
+    <div class="ContainerPerfil">
+        <div class="wrapper">
+            <div class="SeccionIzquierda">
+                <div class="fondoImagen">
+                    <!-- <label for="profilePicture">Foto de perfil</label> -->
+                    <img id="profilePicture" src="../Assets/avatar.png" alt="Foto de perfil" />
+                </div>
+                <div class="textosIzquierda">
+
+                    <div class="form-group">
+                        <label class="ApartadoEnNegritas" for="fullName">Nombre</label>
+                        <input id="fullName" placeholder="[Nombre]" disabled class="apartados">
+                        <hr>
+    
+                    </div>
+                    <div class="form-group">
+                        <label class="ApartadoEnNegritas" for="estado" >Estado:</label>
+                        <select class="apartados" id="estado" disabled>
+                            <option value="disponible">Disponible</option>
+                            <option value="pendiente">Pendiente</option>
+                            <option value="adoptado">Adoptado</option>
+                        </select>
+                        <hr>
+                    </div>
+                    <div class="form-group">
+                        <label class="ApartadoEnNegritas" for="registrationDate">Fecha de registro</label>
+                        <input id="registrationDate" placeholder="[Fecha de registro]" disabled class="apartados">
+                        <hr>
+                    </div>
+                    <div class="botonEditar">
+                        <button type="button" id="editarPerfilBtn" class="BotonEditarPerfil">Editar Perrito</button>
+                    </div> 
+                    
+                    <div class="botonEliminar">
+                        <button type="button" id="botonEliminar" class="BotonEditarPerfil">Eliminar Perrito</button>
+                    </div>
+
+                </div>
+                
+            </div>
+
+
+            <div class="SeccionDerecha">
+                <div class="BloqueSuperior">
+                    <h3>Informacion General</h3>
+                    <hr>
+                    <div class="emaiilYTelefono">
+                        <div class="caja">
+
+                            <label class="ApartadoEnNegritas" for="edad">Edad Aproximada</label>
+                            <input id="edad" placeholder="[Edad]" disabled class="apartados">
+                            <label class="ApartadoEnNegritas" for="raza">Raza</label>
+                            <input id="raza" placeholder="[Raza]" disabled class="apartados">
+                            <label class="ApartadoEnNegritas" for="tamaño">Tamaño</label>
+                            <input id="tamaño" placeholder="[Tamaño]" disabled class="apartados">
+                          
+                        </div>
+
+                        <div class="caja2">
+                            <label class="ApartadoEnNegritas" for="sexo">Sexo</label>
+                            <br>
+
+                            <select id="sexo" class="apartados" disabled >
+                                <option value="macho">Macho</option>
+                                <option value="hembra">Hembra</option>
+                            </select>
+                            <br>
+
+                            <label class="ApartadoEnNegritas" for="tipo">Tipo</label>
+                            <input id="tipo" placeholder="[Tipo]"  class="apartados">
+                            <!-- <label class="ApartadoEnNegritas" for="estado">Estado</label>
+                            <input id="estado">[Estado]</p> -->
+                           
+                      
+                        
+                        </div>
+                        
+                    </div>
+  
+                    <div class="detllaes"> 
+                        <label class="ApartadoEnNegritas" for="descripcion">Descripción</label>
+                        <hr>
+                        <textarea id="descripcion" class="apartados" placeholder="[Descripción larga lorem40 del perrito]" disabled></textarea>
+                    </div>
+                    
+                    
+                    <div class="InformacionAdicional">
+                     
+                        
+                        <div class="row">
+                            <div class="col-md-4">
+                                <img class="img-fluid" src="image1.jpg" alt="Image 1">
+                            </div>
+                            <div class="col-md-4">
+                                <img class="img-fluid" src="image2.jpg" alt="Image 2">
+                            </div>
+                            <div class="col-md-4">
+                                <img class="img-fluid" src="image3.jpg" alt="Image 3">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="BloqueInferior">
+                    <div class="Izquierda">
+                        <h3>Datos Medicos</h3>
+                        <hr>
+                       <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="vacunado" checked disabled>
+                        <label class="form-check-label" for="vacunado">Vacunado</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="esterilizado" checked disabled>
+                        <label class="form-check-label" for="esterilizado">Esterilizado</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="desparacitado" checked disabled>
+                        <label class="form-check-label" for="desparacitado">Desparasitado</label>
+                    </div>
+                    </div>
+                    
+                    
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <script src="js/InfoDetalladaPerro.js"></script>
+
+</body>
+</html>
