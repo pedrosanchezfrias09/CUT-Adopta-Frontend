@@ -5,17 +5,28 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../Styles/CrearPerro.css">
-    <!-- <link rel="stylesheet" href="../Styles/PerfilUsuario.css"> -->
+    <link rel="stylesheet" href="../Styles/login.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.bundle.min.js">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js">
     <link rel="stylesheet"
         href="https://cdnjs.cloudflare.com/ajax/libs/MaterialDesign-Webfont/3.6.95/css/materialdesignicons.css">
 
-    <title>Document</title>
+    <title>Solicitar Publicación</title>
 </head>
 
 <body>
+
+    <div class="contenedor_1">
+
+        <button class="inicio">← Atrás</button>
+        <script>
+            document.querySelector('.inicio').addEventListener('click', function() {
+                window.history.back();
+            });
+        </script>
+
+    </div>
 
     <div class="ContainerPerfil">
         <div class="wrapper">
@@ -28,8 +39,8 @@
 
                     <div class="nombre">
 
-                        <label class="ApartadoEnNegritas"  for="fullName">Nombre</label>
-                        <input id="fullName" placeholder="[Nombre]"  class="apartados">
+                        <label class="ApartadoEnNegritas"  for="fullName">Nombre:</label>
+                        <input id="fullName" placeholder="[Nombre del Perro]"  class="apartados">
                        
     
                     </div>
@@ -53,7 +64,7 @@
                         <hr>
                     </div> -->
                     <div class="botonEditar">
-                        <button type="button" id="registrarPerroBtn" class="BotonEditarPerfil">Crear Perrito</button>
+                        <button type="button" id="registrarPerroBtn" class="BotonEditarPerfil">Enviar</button>
                     </div>
 
                 </div>
@@ -63,7 +74,7 @@
 
             <div class="SeccionDerecha">
                 <div class="BloqueSuperior">
-                    <h3>Informacion General</h3>
+                    <h3>Información General</h3>
                     <hr>
                     <div class="emaiilYTelefono">
                         <div class="caja">
@@ -102,7 +113,7 @@
                     <div class="detllaes"> 
                         <label class="ApartadoEnNegritas" for="descripcion">Descripción</label>
                         <!-- <hr> -->
-                        <textarea id="descripcion" class="apartados" placeholder="[Descripción larga lorem40 del perrito]" ></textarea>
+                        <textarea id="descripcion" class="apartados" placeholder="[Descripción del perrito]" ></textarea>
                     </div>
                     
                     
@@ -124,18 +135,18 @@
                 </div>
                 <div class="BloqueInferior">
                     <div class="Izquierda">
-                        <h3>Datos Medicos</h3>
+                        <h3>Datos Médicos</h3>
                         <hr>
                        <div class="form-check">
-                        <input class="form-check-input" type="checkbox" id="vacunado" checked >
+                        <input class="form-check-input" type="checkbox" id="vacunado">
                         <label class="form-check-label" for="vacunado">Vacunado</label>
                     </div>
                     <div class="form-check">
-                        <input class="form-check-input" type="checkbox" id="esterilizado" checked >
+                        <input class="form-check-input" type="checkbox" id="esterilizado">
                         <label class="form-check-label" for="esterilizado">Esterilizado</label>
                     </div>
                     <div class="form-check">
-                        <input class="form-check-input" type="checkbox" id="desparacitado" checked >
+                        <input class="form-check-input" type="checkbox" id="desparacitado">
                         <label class="form-check-label" for="desparacitado">Desparasitado</label>
                     </div>
                     </div>
