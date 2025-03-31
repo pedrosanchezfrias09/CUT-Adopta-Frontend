@@ -56,7 +56,7 @@
             let response
             let data
             try {
-            response = await fetch('http://localhost:8000/ObtenerTodosLosPerros');
+            response = await fetch('https://pedrocutadopta.onrender.com/ObtenerTodosLosPerros');
             data = await response.json();
             console.log(data);
            } catch (error) {
