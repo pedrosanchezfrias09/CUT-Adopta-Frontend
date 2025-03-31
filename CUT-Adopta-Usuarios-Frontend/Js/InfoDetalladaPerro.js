@@ -59,7 +59,7 @@ function obtenerPerro(perroId) {
         console.log("ID del perro:", perroId);
 
         // Hacer una solicitud a la API para obtener los detalles del perro
-        fetch(`https://pedrocutadopta.onrender.com/ObtenerPerroPorId/${perroId}`)
+        fetch(`http://127.0.0.1:8000/ObtenerPerroPorId/${perroId}`)
             .then(response => response.json())
             .then(data => {
                 console.log("Detalles del perro:", data);
@@ -105,7 +105,7 @@ function eliminarPerrito() {
     }
 
     // Enviar una solicitud DELETE al backend
-    fetch(`https://pedrocutadopta.onrender.com/perros/${perroId}`, {
+    fetch(`http://127.0.0.1:8000/perros/${perroId}`, {
         method: "DELETE"
     })
     .then(response => {
@@ -184,7 +184,7 @@ function actualizarPerrito() {
     const datosActualizados = getValues();
 
     // Hacer la solicitud PUT al backend con los datos actualizados
-    fetch(`https://pedrocutadopta.onrender.com/ActualizarPerro/${perroId}`, {
+    fetch(`http://127.0.0.1:8000/ActualizarPerro/${perroId}`, {
         method: "PUT",
         headers: {
             "Content-Type": "application/json"

@@ -59,7 +59,7 @@ async function registrarPerro() {
     else{
         console.log("Datos del perro:", datosPerro);
         try {
-            let respuesta = await fetch('https://pedrocutadopta.onrender.com/SubirPerro', {
+            let respuesta = await fetch('http://127.0.0.1:8000/SubirPerro', {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json"
