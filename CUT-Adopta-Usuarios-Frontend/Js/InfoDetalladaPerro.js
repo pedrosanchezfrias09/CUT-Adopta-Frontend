@@ -59,7 +59,7 @@ function obtenerPerro(perroId) {
         console.log("ID del perro:", perroId);
 
         // Hacer una solicitud a la API para obtener los detalles del perro
-        fetch(`https://pedrocutadopta.onrender.com/MicroPerritos/ObtenerPerroPorId/${perroId}`)
+        fetch(`https://cut-adopta-backend-perritos.onrender.com/MicroPerritos/ObtenerPerroPorId/${perroId}`)
             .then(response => response.json())
             .then(data => {
                 console.log("Detalles del perro:", data);
@@ -105,7 +105,7 @@ function eliminarPerrito() {
     }
 
     // Enviar una solicitud DELETE al backend
-    fetch(`https://pedrocutadopta.onrender.com/MicroPerritos/perros/${perroId}`, {
+    fetch(`https://cut-adopta-backend-perritos.onrender.com/MicroPerritos/perros/${perroId}`, {
         method: "DELETE"
     })
     .then(response => {
@@ -184,7 +184,7 @@ function actualizarPerrito() {
     const datosActualizados = getValues();
 
     // Hacer la solicitud PUT al backend con los datos actualizados
-    fetch(`https://pedrocutadopta.onrender.com/MicroPerritos/ActualizarPerro/${perroId}`, {
+    fetch(`https://cut-adopta-backend-perritos.onrender.com/MicroPerritos/ActualizarPerro/${perroId}`, {
         method: "PUT",
         headers: {
             "Content-Type": "application/json"
