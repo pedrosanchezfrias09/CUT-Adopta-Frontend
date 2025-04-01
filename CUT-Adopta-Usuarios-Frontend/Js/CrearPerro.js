@@ -68,8 +68,10 @@ async function registrarPerro() {
             });
     
             if (!respuesta.ok) {
-                throw new Error("Error en el registro del perro");
-            }
+            const errorTexto = await respuesta.text();
+            console.error("Error en respuesta del backend:", errorTexto);
+            throw new Error("Error en el registro del perro");
+        }
     
             let data = await respuesta.json();
             console.log("Perro registrado:", data);
