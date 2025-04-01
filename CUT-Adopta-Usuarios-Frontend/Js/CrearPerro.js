@@ -59,7 +59,7 @@ async function registrarPerro() {
     else{
         console.log("Datos del perro:", datosPerro);
         try {
-            let respuesta = await fetch('https://pedrocutadopta.onrender.com/MicroPerritos/SubirPerro', {
+            let respuesta = await fetch('https://cut-adopta-backend-perritos.onrender.com/MicroPerritos/SubirPerro', {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json"
