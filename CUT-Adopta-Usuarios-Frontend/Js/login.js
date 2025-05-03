@@ -71,6 +71,30 @@ function isValidEmail(email) {
     return re.test(email);
 }
 
+// Configurar toggle de contraseña
+function setupPasswordToggle() {
+    document.querySelectorAll('.toggle-password').forEach(button => {
+        button.addEventListener('click', function() {
+            const input = this.previousElementSibling;
+            const icon = this.querySelector('ion-icon');
+            
+            input.classList.add('transitioning');
+            icon.style.transform = 'rotate(180deg)';
+            
+            setTimeout(() => {
+                const type = input.getAttribute('type') === 'password' ? 'text' : 'password';
+                input.setAttribute('type', type);
+                icon.setAttribute('name', 
+                    type === 'password' ? 'eye-outline' : 'eye-off-outline'
+                );
+                
+                input.classList.remove('transitioning');
+                icon.style.transform = 'rotate(0deg)';
+            }, 150);
+        });
+    });
+}
+
 // Función para mostrar mensajes
 function mostrarMensaje(mensaje, tipo) {
     const mensajeContainer = document.getElementById('mensajeContainer');

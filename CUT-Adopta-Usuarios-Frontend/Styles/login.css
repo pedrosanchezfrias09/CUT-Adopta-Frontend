@@ -250,6 +250,23 @@
     white-space: nowrap;
 }
 
+/* Animación para mostrar/ocultar contraseña */
+.password-container .entradaDatos {
+    transition: all 0.3s ease;
+}
+
+.toggle-password {
+    transition: transform 0.3s ease;
+}
+
+.toggle-password:hover {
+    transform: translateY(-50%) scale(1.1);
+}
+
+.toggle-password ion-icon {
+    transition: all 0.3s ease;
+}
+
 .botonEntrar{
     display: flex;
     margin: auto;
