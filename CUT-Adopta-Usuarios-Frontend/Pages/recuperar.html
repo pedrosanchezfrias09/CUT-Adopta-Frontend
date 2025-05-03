@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Recuperar contraseña</title>
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: #f0f4f8;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+    .contenedor {
+      background: white;
+      padding: 40px;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      max-width: 400px;
+      width: 100%;
+      text-align: center;
+    }
+    h2 {
+      margin-bottom: 20px;
+      color: #BF592B;
+    }
+    input[type="email"] {
+      width: 100%;
+      padding: 15px;
+      margin: 15px 0;
+      border-radius: 8px;
+      border: 2px solid #ccc;
+      font-size: 1em;
+    }
+    button {
+      background-color: #BF592B;
+      color: white;
+      border: none;
+      padding: 15px;
+      border-radius: 8px;
+      font-size: 1em;
+      cursor: pointer;
+      width: 100%;
+    }
+    button:hover {
+      background-color: black;
+    }
+    .mensaje {
+      margin-top: 15px;
+      font-size: 1em;
+      color: #333;
+    }
+    .mensaje-exito { color: green; }
+    .mensaje-error { color: red; }
+  </style>
+</head>
+<body>
+  <div class="contenedor">
+    <h2>Recuperar contraseña</h2>
+    <p>Ingresa tu correo y recibirás un enlace para restablecer tu contraseña.</p>
+    <input type="email" id="correoRecuperacion" placeholder="Correo electrónico" required>
+    <button id="enviarRecuperacion">Enviar enlace</button>
+    <div id="mensajeRecuperacion" class="mensaje"></div>
+  </div>
+  <script src="/JS/config.js"></script>
+  <script src="/JS/recuperar.js"></script>
+</body>
+</html>

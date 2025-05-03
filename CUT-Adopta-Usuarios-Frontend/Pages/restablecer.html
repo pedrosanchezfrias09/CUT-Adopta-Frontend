@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Restablecer contraseña</title>
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: #f0f4f8;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      margin: 0;
+    }
+    .contenedor {
+      background: white;
+      padding: 40px;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      max-width: 400px;
+      width: 100%;
+      text-align: center;
+    }
+    h2 {
+      margin-bottom: 20px;
+      color: #BF592B;
+    }
+    input[type="password"] {
+      width: 100%;
+      padding: 15px;
+      margin: 15px 0;
+      border-radius: 8px;
+      border: 2px solid #ccc;
+      font-size: 1em;
+    }
+    button {
+      background-color: #BF592B;
+      color: white;
+      border: none;
+      padding: 15px;
+      border-radius: 8px;
+      font-size: 1em;
+      cursor: pointer;
+      width: 100%;
+      margin-top: 10px;
+    }
+    button:hover {
+      background-color: black;
+    }
+    .mensaje {
+      margin-top: 15px;
+      font-size: 1em;
+      color: #333;
+    }
+  </style>
+</head>
+<body>
+  <div class="contenedor">
+    <h2>Restablecer contraseña</h2>
+    <input type="password" id="nuevaContrasena" placeholder="Nueva contraseña" required>
+    <button id="btnRestablecer">Guardar nueva contraseña</button>
+    <div class="mensaje" id="mensaje"></div>
+  </div>
+  <script>
+    const token = new URLSearchParams(window.location.search).get("token");
+    const btn = document.getElementById("btnRestablecer");
+    const mensaje = document.getElementById("mensaje");
+    btn.addEventListener("click", async () => {
+      const nuevaContrasena = document.getElementById("nuevaContrasena").value.trim();
+      if (!nuevaContrasena || nuevaContrasena.length < 6) {
+        mensaje.textContent = "La contraseña debe tener al menos 6 caracteres.";
+        return;
+      }
+      try {
+        const respuesta = await fetch("https://cut-adopta-backend.onrender.com/nueva-contrasena", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ token, new_password: nuevaContrasena })
+        });
+        const data = await respuesta.json();
+        if (respuesta.ok) {
+          mensaje.textContent = "¡Contraseña actualizada correctamente! Redirigiendo...";
+          setTimeout(() => {
+            window.location.href = "../index.html";
+          }, 2000);
+        } else {
+          mensaje.textContent = data.detail || "Ocurrió un error.";
+        }
+      } catch (error) {
+        console.error("Error:", error);
+        mensaje.textContent = "No se pudo conectar con el servidor.";
+      }
+    });
+  </script>
+</body>
+</html>

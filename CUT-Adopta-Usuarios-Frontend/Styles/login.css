@@ -381,8 +381,17 @@
     border: none;
     background-color: #BF592B;
 }
+.recuperar{
+    font-family: "Poppins", sans-serif;
+    color: black;
+    font-weight: 700;
+    font-size: 1.0em;
+    border: none;
+    margin-top: 15px;
+}
 
-.registro:hover{
+
+.registro:hover, .recuperar:hover{
     color: black;
     transform: scale(1.08);
     transition: transform 0.3s ease;
@@ -578,7 +587,7 @@
         margin: auto;
     }
 
-    .registro{
+    .registro, .recuperar{
         font-size: 1.3rem;
     }
 
@@ -625,7 +634,7 @@
         font-size: 1.0rem;
     }
 
-    .registro{
+    .registro, .recuperar{
         font-size: 1.0rem;
     }
 

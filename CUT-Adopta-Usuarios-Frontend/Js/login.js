@@ -58,6 +58,12 @@ function isValidEmail(email) {
     return re.test(email);
 }
 
+// Funcion para recuperar contraseña
+document.getElementById('btnRecuperar').addEventListener('click', () => {
+    window.location.href = 'Pages/recuperar.html';
+  });
+  
+
 // Configurar toggle de contraseña
 function setupPasswordToggle() {
     document.querySelectorAll('.toggle-password').forEach(button => {

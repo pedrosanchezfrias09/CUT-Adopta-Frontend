@@ -191,3 +191,12 @@ document.getElementById('registerButton').addEventListener('click', async functi
         mostrarMensaje('Error al conectar con el servidor', 'error');
     }
 });
+
+document.addEventListener('DOMContentLoaded', () => {
+    document.getElementById('iniciaSesion').addEventListener('click', function () {
+      window.location.href = '../index.html';
+    });
+  });
+  
+
+
