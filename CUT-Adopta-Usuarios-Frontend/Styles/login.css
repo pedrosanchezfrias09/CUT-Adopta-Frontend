@@ -113,6 +113,23 @@
     visibility: visible;
 }
 
+/* Animación para mostrar/ocultar contraseña */
+.password-container .entradaDatos {
+    transition: all 0.3s ease;
+}
+
+.toggle-password {
+    transition: transform 0.3s ease;
+}
+
+.toggle-password:hover {
+    transform: translateY(-50%) scale(1.1);
+}
+
+.toggle-password ion-icon {
+    transition: all 0.3s ease;
+}
+
 .menu-container.active {
     left: 0;
 }
@@ -250,22 +267,7 @@
     white-space: nowrap;
 }
 
-/* Animación para mostrar/ocultar contraseña */
-.password-container .entradaDatos {
-    transition: all 0.3s ease;
-}
 
-.toggle-password {
-    transition: transform 0.3s ease;
-}
-
-.toggle-password:hover {
-    transform: translateY(-50%) scale(1.1);
-}
-
-.toggle-password ion-icon {
-    transition: all 0.3s ease;
-}
 
 .botonEntrar{
     display: flex;
@@ -469,6 +471,31 @@
     font-size: 1rem;
     font-weight: 300;
   }
+
+
+
+
+  .password-container {
+    position: relative;
+    width: 100%;
+  }
+  
+  .toggle-password {
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+  }
+  
+  .toggle-password ion-icon {
+    font-size: 1.6em;
+    color: #BF592B;
+  }
+  
   @keyframes animateWaves {
     0% {
       background-position-x: 1000px;

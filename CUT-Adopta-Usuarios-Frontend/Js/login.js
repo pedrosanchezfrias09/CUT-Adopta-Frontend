@@ -32,16 +32,7 @@ function initTraduccion() {
                 submenu.classList.remove('active');
             });
         }
-        
-        // Toggle menú principal
-        menuToggle.addEventListener('click', function(e) {
-            e.stopPropagation();
-            if (menuContainer.classList.contains('active')) {
-                closeMenu();
-            } else {
-                openMenu();
-            }
-        });
+            
         
         // Cerrar al hacer click en el overlay
         overlay.addEventListener('click', closeMenu);
@@ -61,10 +52,6 @@ function initTraduccion() {
             });
         });
         
-        // Prevenir que los clicks dentro del menú lo cierren
-        menuContainer.addEventListener('click', function(e) {
-            e.stopPropagation();
-        });
 // Función para validar email
 function isValidEmail(email) {
     const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -169,3 +156,6 @@ document.getElementById('loginButton').addEventListener('click', async function(
         this.disabled = false;
     }
 });
+
+setupPasswordToggle();
+
