@@ -49,43 +49,63 @@ function validacionDeDatos(datosPerro) {
     return true;
 }
 async function registrarPerro() {
-
-    
     let datosPerro = obtenerValoresFormulario();
-    datosPerro.fechaRegistro = new Date().toISOString().split('T')[0];//le da la fecha automaticamente
-    if (!validacionDeDatos(datosPerro)) {
+
+    // Validación de edad como número
+    if (isNaN(parseInt(datosPerro.edad))) {
+        alert("La edad debe ser un número.");
         return;
     }
-    else{
-        console.log("Datos del perro:", datosPerro);
-        try {
-            let respuesta = await fetch('https://cut-adopta-backend-perritos.onrender.com/SubirPerro', {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json"
-                },
-                body: JSON.stringify(datosPerro)
-            });
-    
-            if (!respuesta.ok) {
+
+    // Subir imagen a Cloudinary
+    const archivo = document.getElementById("profilePictureUpload").files[0];
+    let imagenUrl = "";
+    if (archivo) {
+        const formData = new FormData();
+        formData.append("file", archivo);
+
+        const uploadResponse = await fetch("https://cut-adopta-backend-perritos.onrender.com/subir_imagen_perro", {
+            method: "POST",
+            body: formData
+        });
+
+        if (!uploadResponse.ok) {
+            alert("Error al subir la imagen.");
+            return;
+        }
+
+        const uploadData = await uploadResponse.json();
+        imagenUrl = uploadData.imagen_url;
+    }
+
+    datosPerro.edad = parseInt(datosPerro.edad);
+    datosPerro.fechaRegistro = new Date().toISOString().split('T')[0];
+    datosPerro.imagen_url = imagenUrl;
+
+    try {
+        const respuesta = await fetch('https://cut-adopta-backend-perritos.onrender.com/SubirPerro', {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(datosPerro)
+        });
+
+        if (!respuesta.ok) {
             const errorTexto = await respuesta.text();
             console.error("Error en respuesta del backend:", errorTexto);
             throw new Error("Error en el registro del perro");
         }
-    
-            let data = await respuesta.json();
-            console.log("Perro registrado:", data);
-            alert("El perro ha sido registrado correctamente.");
-            limpiarFormulario();
-        } catch (error) {
-            console.error("Error al registrar el perro:", error);
-            alert("Hubo un error al registrar el perro.");
-        }
 
+        const data = await respuesta.json();
+        alert("El perro ha sido registrado correctamente.");
+        limpiarFormulario();
+    } catch (error) {
+        console.error("Error al registrar el perro:", error);
+        alert("Hubo un error al registrar el perro.");
     }
-
-    
 }
+
 function vistaPreviaPerrito(event) {
     const image = document.getElementById('profilePicture');
     image.src = URL.createObjectURL(event.target.files[0]);
