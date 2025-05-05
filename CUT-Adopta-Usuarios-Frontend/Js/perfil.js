@@ -45,7 +45,8 @@ document.addEventListener("DOMContentLoaded", async function () {
 
         // Mostrar imagen si ya existe
         if (userData.imagen_url) {
-            document.getElementById("profilePicture").src = `${API_URL}${userData.imagen_url}`;
+            document.getElementById("profilePicture").src = userData.imagen_url;
+
         }
     } catch (error) {
         console.error("Error al cargar el perfil del usuario:", error);
