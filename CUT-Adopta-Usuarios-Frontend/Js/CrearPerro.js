@@ -1,31 +1,33 @@
+const API_URL = "https://cut-adopta-backend-perritos.onrender.com";
+
+let imagenSeleccionada = null;
+
 document.addEventListener('DOMContentLoaded', function () {
     const registrarPerroBtn = document.getElementById('registrarPerroBtn');
-    const profilePictureUpload = document.getElementById('profilePictureUpload');
-    const profilePicture = document.getElementById('profilePicture');
-
     if (registrarPerroBtn) {
         registrarPerroBtn.addEventListener('click', registrarPerro);
     }
 
-    // Hacer que el click en la imagen abra el input
-    profilePicture.addEventListener('click', () => {
-        profilePictureUpload.click();
-    });
-
-    // Mostrar vista previa
-    profilePictureUpload.addEventListener('change', (event) => {
-        const file = event.target.files[0];
-        if (file) {
-            profilePicture.src = URL.createObjectURL(file);
-        }
-    });
+    const fileInput = document.getElementById('profilePictureUpload');
+    if (fileInput) {
+        fileInput.addEventListener('change', mostrarVistaPrevia);
+    }
 });
+
+function mostrarVistaPrevia(event) {
+    const file = event.target.files[0];
+    if (file) {
+        imagenSeleccionada = file;
+        const vista = document.getElementById("profilePicture");
+        vista.src = URL.createObjectURL(file);
+    }
+}
 
 function obtenerValoresFormulario() {
     return {
         nombre: document.getElementById('fullName').value,
         estado: document.getElementById('estado').value,
-        edad: document.getElementById('edad').value,
+        edad: parseInt(document.getElementById('edad').value, 10),
         raza: document.getElementById('raza').value,
         tamaño: document.getElementById('tamaño').value,
         sexo: document.getElementById('sexo').value,
@@ -33,59 +35,62 @@ function obtenerValoresFormulario() {
         descripcion: document.getElementById('descripcion').value,
         vacunado: document.getElementById('vacunado').checked,
         esterilizado: document.getElementById('esterilizado').checked,
-        desparacitado: document.getElementById('desparacitado').checked
+        desparacitado: document.getElementById('desparacitado').checked,
+        fechaRegistro: new Date().toISOString().split('T')[0]
     };
 }
 
 function validacionDeDatos(datosPerro) {
-    if (!datosPerro.nombre || !datosPerro.estado || !datosPerro.edad || !datosPerro.raza || !datosPerro.tamaño) {
-        alert("Por favor completa todos los campos obligatorios.");
-        return false;
-    }
-
-    if (isNaN(parseInt(datosPerro.edad))) {
-        alert("La edad debe ser un número.");
-        return false;
-    }
-
+    if (!datosPerro.nombre) return alert("El nombre del perro es obligatorio.");
+    if (!datosPerro.estado) return alert("El estado del perro es obligatorio.");
+    if (isNaN(datosPerro.edad)) return alert("La edad debe ser un número.");
+    if (!datosPerro.raza) return alert("La raza es obligatoria.");
+    if (!datosPerro.tamaño) return alert("El tamaño es obligatorio.");
     return true;
 }
 
-async function registrarPerro() {
-    let datosPerro = obtenerValoresFormulario();
-    datosPerro.fechaRegistro = new Date().toISOString().split('T')[0];
+async function subirImagenACloudinary() {
+    if (!imagenSeleccionada) return null;
 
-    if (!validacionDeDatos(datosPerro)) return;
+    const formData = new FormData();
+    formData.append("file", imagenSeleccionada);
 
     try {
-        // Subir imagen si se eligió una
-        const archivo = document.getElementById("profilePictureUpload").files[0];
-        let imagenUrl = "";
+        const response = await fetch(`${API_URL}/subir_imagen_perrito`, {
+            method: "POST",
+            body: formData,
+        });
 
-        if (archivo) {
-            const formData = new FormData();
-            formData.append("file", archivo);
-
-            const uploadResponse = await fetch("https://cut-adopta-backend-perritos.onrender.com/subir_imagen_perrito", {
-                method: "POST",
-                body: formData
-            });
-
-            if (!uploadResponse.ok) {
-                const err = await uploadResponse.text();
-                console.error("Error al subir imagen:", err);
-                alert("Error al subir imagen");
-                return;
-            }
-
-            const data = await uploadResponse.json();
-            imagenUrl = data.imagen_url;
+        if (!response.ok) {
+            const error = await response.json();
+            console.error("Error al subir imagen:", error);
+            alert("Error al subir imagen");
+            return null;
         }
 
-        datosPerro.edad = parseInt(datosPerro.edad);
-        datosPerro.imagen_url = imagenUrl;
+        const data = await response.json();
+        console.log("Imagen subida:", data.imagen_url);
+        return data.imagen_url;
+    } catch (error) {
+        console.error("Error en subida a Cloudinary:", error);
+        alert("Error al subir imagen a Cloudinary");
+        return null;
+    }
+}
 
-        const respuesta = await fetch("https://cut-adopta-backend-perritos.onrender.com/SubirPerro", {
+async function registrarPerro() {
+    const datosPerro = obtenerValoresFormulario();
+    if (!validacionDeDatos(datosPerro)) return;
+
+    // 1. Subir imagen a Cloudinary
+    const imagenURL = await subirImagenACloudinary();
+    if (imagenURL) {
+        datosPerro.imagen_url = imagenURL;
+    }
+
+    // 2. Enviar los datos del perro
+    try {
+        const respuesta = await fetch(`${API_URL}/SubirPerro`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
@@ -96,17 +101,16 @@ async function registrarPerro() {
         if (!respuesta.ok) {
             const errorTexto = await respuesta.text();
             console.error("Error en respuesta del backend:", errorTexto);
-            alert("Error al registrar el perrito.");
-            return;
+            throw new Error("Error en el registro del perro");
         }
 
-        const result = await respuesta.json();
-        console.log("Perro registrado:", result);
-        alert("¡El perrito ha sido registrado correctamente!");
+        const data = await respuesta.json();
+        console.log("Perro registrado:", data);
+        alert("El perro ha sido registrado correctamente.");
         limpiarFormulario();
     } catch (error) {
         console.error("Error al registrar el perro:", error);
-        alert("Hubo un error inesperado.");
+        alert("Hubo un error al registrar el perro.");
     }
 }
 
@@ -122,6 +126,7 @@ function limpiarFormulario() {
     document.getElementById('vacunado').checked = false;
     document.getElementById('esterilizado').checked = false;
     document.getElementById('desparacitado').checked = false;
-    document.getElementById('profilePictureUpload').value = "";
     document.getElementById('profilePicture').src = "../Assets/avatar.png";
+    document.getElementById('profilePictureUpload').value = "";
+    imagenSeleccionada = null;
 }
