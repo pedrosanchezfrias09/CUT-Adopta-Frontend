@@ -2,21 +2,16 @@ let API_URL = "https://pedrocutadopta.onrender.com";
 
 // Script para llenar los inputs del perfil con la información del usuario
 document.addEventListener("DOMContentLoaded", async function () {
-    // Obtener el usuario desde localStorage y extraer el email y token
     const userData = JSON.parse(localStorage.getItem("userData"));
     const userToken = localStorage.getItem("token");
     const userEmail = userData ? userData.email : null;
-    
+
     if (!userEmail || !userToken) {
-        console.error("Error: Usuario no autenticado");
         alert("Usuario no autenticado");
         return;
     }
 
-    console.log("Token de usuario obtenido:", userToken); // Verificar si el token se obtiene correctamente
-
     try {
-        console.log("Enviando petición a la API con email:", userEmail);
         const response = await fetch(`${API_URL}/usuario/${userEmail}`, {
             method: "GET",
             headers: {
@@ -25,20 +20,16 @@ document.addEventListener("DOMContentLoaded", async function () {
                 "Content-Type": "application/json"
             }
         });
-        
+
         if (!response.ok) {
             const errorData = await response.json();
-            console.error("Error en la respuesta de la API:", response.status, errorData);
             throw new Error(`Error al obtener datos del usuario: ${response.statusText}`);
         }
 
         const userData = await response.json();
-        console.log("Datos del usuario obtenidos:", userData);
-        
-        // Función para evitar valores null en los inputs
+
         const safeValue = (value) => value !== null && value !== undefined ? value : "";
-        
-        // Llenar los inputs con los datos obtenidos
+
         document.getElementById("fullName").value = safeValue(userData.name);
         document.getElementById("birthDate").value = safeValue(userData.birth_date);
         document.getElementById("registrationDate").value = safeValue(userData.register_date);
@@ -51,31 +42,79 @@ document.addEventListener("DOMContentLoaded", async function () {
         document.getElementById("houseNumber").value = safeValue(userData.house_number);
         document.getElementById("accountStatus").value = safeValue(userData.status);
         document.getElementById("city").value = safeValue(userData.city);
+
+        // Mostrar imagen si ya existe
+        if (userData.imagen_url) {
+            document.getElementById("profilePicture").src = `${API_URL}${userData.imagen_url}`;
+        }
     } catch (error) {
         console.error("Error al cargar el perfil del usuario:", error);
     }
 });
 
-//Boton editar
+// Función para mostrar vista previa
+var loadFile = function (event) {
+    var image = document.getElementById('profilePicture');
+    image.src = URL.createObjectURL(event.target.files[0]);
+    subirImagen();  // Llama a la función que sube la imagen
+};
 
-function editar(){
+async function subirImagen() {
+    const archivo = document.getElementById("profilePictureUpload").files[0];
+    const userToken = localStorage.getItem("token");
+
+    if (!archivo) return;
+
+    const formData = new FormData();
+    formData.append("file", archivo);
+
+    try {
+        const response = await fetch(`${API_URL}/subir_imagen_usuario`, {
+            method: "POST",
+            headers: {
+                "Authorization": `Bearer ${userToken}`
+            },
+            body: formData
+        });
+
+        if (!response.ok) {
+            const err = await response.json();
+            console.error("Error al subir imagen:", err);
+            return;
+        }
+
+        const data = await response.json();
+        console.log("Imagen subida con éxito:", data.imagen_url);
+
+        // Actualizar el campo en la base de datos
+        await fetch(`${API_URL}/actualizar_usuario`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${userToken}`,
+                "Accept": "application/json",
+            },
+            body: JSON.stringify({ imagen_url: data.imagen_url, email: JSON.parse(localStorage.getItem("userData")).email })
+        });
+    } catch (error) {
+        console.error("Error al subir la imagen:", error);
+    }
+}
+
+// Botón editar
+function editar() {
     const inputs = document.querySelectorAll("input[disabled]");
     const botonEditar = document.getElementById("botonEditar");
     inputs.forEach(input => input.removeAttribute("disabled"));
 
-
     if (botonEditar.textContent === "Editar") {
         botonEditar.textContent = "Guardar";
-    }
-    else if (botonEditar.textContent === "Guardar") {
+    } else if (botonEditar.textContent === "Guardar") {
         actualizarPerfil();
     }
-}  
-
+}
 
 async function actualizarPerfil() {
-    console.log('Actualizando perfil');
-
     const email = JSON.parse(localStorage.getItem("userData")).email;
     const userToken = localStorage.getItem("token");
 
@@ -91,9 +130,7 @@ async function actualizarPerfil() {
         city: document.getElementById("city").value || null
     };
 
-    cuerpo.cellphone = cuerpo.cellphone ? parseInt(cuerpo.cellphone, 10): null;
-
-    console.log('Datos del perfil a enviar:', cuerpo);
+    cuerpo.cellphone = cuerpo.cellphone ? parseInt(cuerpo.cellphone, 10) : null;
 
     try {
         let response = await fetch(`${API_URL}/actualizar_usuario`, {
@@ -109,7 +146,6 @@ async function actualizarPerfil() {
         if (!response.ok) {
             const infoError = await response.json();
             console.error(`Error actualizando perfil: ${infoError}`);
-            console.error(`Json que no se envio`, cuerpo)
         } else {
             console.log('Perfil actualizado correctamente');
             window.location.reload();
