@@ -66,7 +66,7 @@ async function registrarPerro() {
             const formData = new FormData();
             formData.append("file", archivo);
 
-            const uploadResponse = await fetch("https://cut-adopta-backend-perritos.onrender.com/subir_imagen_perro", {
+            const uploadResponse = await fetch("https://cut-adopta-backend-perritos.onrender.com/subir_imagen_perrito", {
                 method: "POST",
                 body: formData
             });
