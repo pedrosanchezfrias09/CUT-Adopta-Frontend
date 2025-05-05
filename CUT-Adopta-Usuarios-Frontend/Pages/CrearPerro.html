@@ -32,8 +32,11 @@
         <div class="wrapper">
             <div class="SeccionIzquierda">
                 <div class="fondoImagen">
-                    <!-- <label for="profilePicture">Foto de perfil</label> -->
-                    <img id="profilePicture" src="../Assets/avatar.png" alt="Foto de perfil" />
+                    <div class="fondoImagen" onclick="document.getElementById('perroImage').click();">
+                        <input type="file" id="perroImage" accept="image/*" onchange="vistaPreviaPerrito(event)" style="display: none;">
+                        <img id="profilePicture" src="../Assets/avatar.png" alt="Foto del perrito" />
+                    </div>
+                    
                 </div>
                 <div class="textosIzquierda">
 

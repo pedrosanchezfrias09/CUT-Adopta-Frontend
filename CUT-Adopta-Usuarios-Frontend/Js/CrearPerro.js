@@ -86,6 +86,11 @@ async function registrarPerro() {
 
     
 }
+function vistaPreviaPerrito(event) {
+    const image = document.getElementById('profilePicture');
+    image.src = URL.createObjectURL(event.target.files[0]);
+}
+
 
 function limpiarFormulario() {
     document.getElementById('fullName').value = "";
