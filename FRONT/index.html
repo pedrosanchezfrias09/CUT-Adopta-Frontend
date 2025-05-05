@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario de Adopción</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../Styles/login.css">
+</head>
+<body>
+    
+<!-- <div class="contenedor_1">
+
+        <button class="inicio">← Atrás</button>
+        <script>
+            document.querySelector('.inicio').addEventListener('click', function() {
+                window.history.back();
+            });
+        </script>
+        <button class="menu-toggle"><img id="1" src="../Assets/menu.png" alt="menu"></button>
+</div> -->
+
+<div class="form-container">
+    <h2 class="titulo">Formulario de Adopción</h2>
+    <form>
+        <div class="form-grid">
+            <div class="column">
+                <div class="form-group">
+                    <label>Nombres y Apellidos *</label>
+                    <input type="text" required>
+                </div>
+                <div class="form-group">
+                    <label>Fecha de nacimiento *</label>
+                    <input type="date" required>
+                </div>
+                <div class="form-group">
+                    <label>Estado *</label>
+                    <input type="text" required>
+                </div>
+                <div class="form-group">
+                    <label>Ciudad *</label>
+                    <input type="text" required>
+                </div>
+                <div class="form-group">
+                    <label>Calle *</label>
+                    <input type="text" required>
+                </div>
+                <div class="form-group">
+                    <label>Colonia *</label>
+                    <input type="text" required>
+                </div>
+                <div class="form-group">
+                    <label>Código Postal *</label>
+                    <input type="text" required>
+                </div>
+                <div class="form-group">
+                    <label>Numero de Casa *</label>
+                    <input type="text" required>
+                </div>
+                
+                <div class="form-group">
+                    <label>Edad *</label>
+                    <input type="number" required>
+                </div>
+                <div class="form-group"> 
+                    <label>Adjunta tu credencial *</label> 
+                    <input type="file" accept="image/*" required>
+                </div>
+            </div>
+
+            <div class="column">
+                <div class="form-group">
+                    <label>¿Vives en casa o departamento? *</label>
+                    <select required>
+                        <option value="">Selecciona</option>
+                        <option value="casa_propia">Casa propia</option>
+                        <option value="casa_rentada">Casa rentada</option>
+                        <option value="departamento_propio">Departamento propio</option>
+                        <option value="departamento_rentado">Departamento rentado</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>¿Cuántas veces saldrá a pasear al día? *</label>
+                    <input type="text" required>
+                </div>
+                <div class="form-group">
+                    <label>Ya has adoptado en Cut-Adopta? *</label>
+                    <select required>
+                        <option value="">Selecciona</option>
+                        <option value="si">Sí</option>
+                        <option value="no">No</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Si rentas, ¿tienes permiso del casero para tener perro? *</label>
+                    <select required>
+                        <option value="">Selecciona</option>
+                        <option value="si">Sí</option>
+                        <option value="no">No</option>
+                        <option value="no_hablado">Aún no lo he hablado</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>¿Tienes más animales? ¿Cuántos? *</label>
+                    <input type="text" required>
+                </div>
+                <div class="form-group">
+                    <label>Celular *</label>
+                    <input type="tel" required>
+                </div>
+                <div class="form-group">
+                    <label>Email *</label>
+                    <input type="email" required>
+                </div>
+                <div class="form-group">
+                    <label>Profesión *</label>
+                    <input type="text" required>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group full-width">
+            <label>¿Por qué quieres adoptar a este perro? *</label>
+            <textarea rows="3" required></textarea>
+        </div>
+
+        <div class="submit-btn">
+            <button type="submit">Enviar</button>
+        </div>
+    </form>
+</div>
+
+</body>
+</html>
