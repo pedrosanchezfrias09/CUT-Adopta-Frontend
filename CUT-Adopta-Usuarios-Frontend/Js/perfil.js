@@ -113,6 +113,12 @@ function editar() {
     } else if (botonEditar.textContent === "Guardar") {
         actualizarPerfil();
     }
+
+    //deshabilitar el botón de correo y de fecha de registro y de cuenta
+    document.getElementById("email").disabled = true;
+    document.getElementById("registrationDate").disabled = true;
+    document.getElementById("accountStatus").disabled = true;
+
 }
 
 async function actualizarPerfil() {
