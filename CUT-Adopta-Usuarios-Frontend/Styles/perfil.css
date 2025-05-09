@@ -94,6 +94,7 @@
     font-weight: 700;
     align-items: center;
     font-family: "Poppins", sans-serif;
+    object-fit: cover;
 }
 
 .custom-file-upload{

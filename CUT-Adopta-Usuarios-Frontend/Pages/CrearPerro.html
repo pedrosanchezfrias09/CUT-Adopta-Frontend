@@ -1,164 +1,114 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../Styles/CrearPerro.css">
-    <link rel="stylesheet" href="../Styles/login.css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.bundle.min.js">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js">
-    <link rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/MaterialDesign-Webfont/3.6.95/css/materialdesignicons.css">
-
-    <title>Solicitar Publicación</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <link rel="stylesheet" href="../Styles/CrearPerro.css">
+  <title>Solicitar Publicación</title>
 </head>
-
 <body>
+  <div class="contenedor_1">
+    <button class="inicio">← Atrás</button>
+    <script>
+      document.querySelector('.inicio').addEventListener('click', function () {
+        window.location.href = 'galeriaDeInicioLog.html';
+      });
+    </script>
+  </div>
 
-    <div class="contenedor_1">
-
-        <button class="inicio">← Atrás</button>
-        <script>
-            document.querySelector('.inicio').addEventListener('click', function() {
-                window.location.href = 'galeriaDeInicioLog.html';
-            });
-        </script>
-
-    </div>
-
-    <div class="ContainerPerfil">
-        <div class="wrapper">
-            <div class="SeccionIzquierda">
-                <div class="fondoImagen">
-                    <!-- <label for="profilePicture">Foto de perfil</label> -->
-                    <img id="profilePicture" src="../Assets/avatar.png" alt="Foto de perfil" />
-                </div>
-                <div class="textosIzquierda">
-
-                    <div class="nombre">
-
-                        <label class="ApartadoEnNegritas"  for="fullName">Nombre:</label>
-                        <input id="fullName" placeholder="[Nombre del Perro]"  class="apartados">
-                       
-    
-                    </div>
-                    <hr>
-                    <div class="estado">
-                        <label class="ApartadoEnNegritas" for="estado">Estado:</label>
-                        <br>
-                        <select class="apartados" id="estado">
-                            <option value="disponible">Disponible</option>
-                            <option value="pendiente">Pendiente</option>
-                            <option value="adoptado">Adoptado</option>
-                        </select>
-                        <br>
-                        
-                    </div>
-                    <hr>
-                    
-                     <!--<div class="form-group">
-                        <label class="ApartadoEnNegritas" for="registrationDate">Fecha de registro</label>
-                        <input id="registrationDate" placeholder="[Fecha de registro]" disabled class="apartados">
-                        <hr>
-                    </div> -->
-                    <div class="botonEditar">
-                        <button type="button" id="registrarPerroBtn" class="BotonEditarPerfil">Enviar</button>
-                    </div>
-
-                </div>
-                
-            </div>
-
-
-            <div class="SeccionDerecha">
-                <div class="BloqueSuperior">
-                    <h3>Información General</h3>
-                    <hr>
-                    <div class="emaiilYTelefono">
-                        <div class="caja">
-
-                            <label class="ApartadoEnNegritas" for="edad">Edad Aproximada</label>
-                            <input id="edad" placeholder="[Edad]"  class="apartados">
-                            <label class="ApartadoEnNegritas" for="raza">Raza</label>
-                            <input id="raza" placeholder="[Raza]"  class="apartados">
-                            <label class="ApartadoEnNegritas" for="tamaño">Tamaño</label>
-                            <input id="tamaño" placeholder="[Tamaño]"  class="apartados">
-                          
-                        </div>
-
-                        <div class="caja2">
-                            <label class="ApartadoEnNegritas" for="sexo">Sexo</label>
-                            <br>
-
-                            <select id="sexo" class="apartados" >
-                                <option value="macho">Macho</option>
-                                <option value="hembra">Hembra</option>
-                            </select>
-                            <br>
-                             <!-- salto de linea -->
-
-                            <label class="ApartadoEnNegritas" for="tipo">Tipo</label>
-                            <input id="tipo" placeholder="[Tipo]"  class="apartados">
-                            <!-- <label class="ApartadoEnNegritas" for="estado">Estado</label>
-                            <input id="estado">[Estado]</p> -->
-                           
-                      
-                        
-                        </div>
-                        
-                    </div>
-  
-                    <div class="detllaes"> 
-                        <label class="ApartadoEnNegritas" for="descripcion">Descripción</label>
-                        <!-- <hr> -->
-                        <textarea id="descripcion" class="apartados" placeholder="[Descripción del perrito]" ></textarea>
-                    </div>
-                    
-                    
-                    <!-- <div class="InformacionAdicional">
-                     
-                        
-                        <div class="row">
-                            <div class="col-md-4">
-                                <img class="img-fluid" src="image1.jpg" alt="Image 1">
-                            </div>
-                            <div class="col-md-4">
-                                <img class="img-fluid" src="image2.jpg" alt="Image 2">
-                            </div>
-                            <div class="col-md-4">
-                                <img class="img-fluid" src="image3.jpg" alt="Image 3">
-                            </div>
-                        </div>
-                    </div> -->
-                </div>
-                <div class="BloqueInferior">
-                    <div class="Izquierda">
-                        <h3>Datos Médicos</h3>
-                        <hr>
-                       <div class="form-check">
-                        <input class="form-check-input" type="checkbox" id="vacunado">
-                        <label class="form-check-label" for="vacunado">Vacunado</label>
-                    </div>
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" id="esterilizado">
-                        <label class="form-check-label" for="esterilizado">Esterilizado</label>
-                    </div>
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" id="desparacitado">
-                        <label class="form-check-label" for="desparacitado">Desparasitado</label>
-                    </div>
-                    </div>
-                    
-                    
-                    </div>
-                </div>
-            </div>
+  <div class="ContainerPerfil">
+    <div class="wrapper">
+      <div class="SeccionIzquierda">
+        <!-- Imagen clickeable -->
+        <div class="fondoImagen" onclick="document.getElementById('profilePictureUpload').click();">
+          <img id="profilePicture" src="../Assets/avatar.png" alt="Foto del perrito" />
         </div>
 
+        <!-- Input oculto -->
+        <input type="file" id="profilePictureUpload" accept="image/*" style="display: none;" onchange="vistaPreviaPerro(event)" />
 
-        <script src="../Js/CrearPerro.js"></script>
+        <div class="textosIzquierda">
+          <div class="nombre">
+            <label class="ApartadoEnNegritas" for="fullName">Nombre:</label>
+            <input id="fullName" placeholder="[Nombre del Perro]" class="apartados" />
+          </div>
+          <hr />
+          <div class="estado">
+            <label class="ApartadoEnNegritas" for="estado">Estado:</label><br />
+            <select class="apartados" id="estado">
+              <option value="disponible">Disponible</option>
+              <option value="pendiente">Pendiente</option>
+              <option value="adoptado">Adoptado</option>
+            </select>
+          </div>
+          <hr />
+          <div class="botonEditar">
+            <button type="button" id="registrarPerroBtn" class="BotonEditarPerfil">Enviar</button>
+          </div>
+        </div>
+      </div>
 
+      <div class="SeccionDerecha">
+        <div class="BloqueSuperior">
+          <h3>Información General</h3>
+          <hr />
+          <div class="emaiilYTelefono">
+            <div class="caja">
+              <label class="ApartadoEnNegritas" for="edad">Edad Aproximada</label>
+              <input id="edad" placeholder="[Edad]" class="apartados" />
+              <label class="ApartadoEnNegritas" for="raza">Raza</label>
+              <input id="raza" placeholder="[Raza]" class="apartados" />
+              <label class="ApartadoEnNegritas" for="tamaño">Tamaño</label>
+              <input id="tamaño" placeholder="[Tamaño]" class="apartados" />
+            </div>
+            <div class="caja2">
+              <label class="ApartadoEnNegritas" for="sexo">Sexo</label><br />
+              <select id="sexo" class="apartados">
+                <option value="macho">Macho</option>
+                <option value="hembra">Hembra</option>
+              </select><br />
+              <label class="ApartadoEnNegritas" for="tipo">Tipo</label>
+              <input id="tipo" placeholder="[Tipo]" class="apartados" />
+            </div>
+          </div>
+
+          <div class="detllaes">
+            <label class="ApartadoEnNegritas" for="descripcion">Descripción</label>
+            <textarea id="descripcion" class="apartados" placeholder="[Descripción del perrito]"></textarea>
+          </div>
+        </div>
+
+        <div class="BloqueInferior">
+          <div class="Izquierda">
+            <h3>Datos Médicos</h3>
+            <hr />
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" id="vacunado" />
+              <label class="form-check-label" for="vacunado">Vacunado</label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" id="esterilizado" />
+              <label class="form-check-label" for="esterilizado">Esterilizado</label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" id="desparacitado" />
+              <label class="form-check-label" for="desparacitado">Desparasitado</label>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Script para vista previa y registro -->
+  <script>
+    function vistaPreviaPerro(event) {
+      const archivo = event.target.files[0];
+      const img = document.getElementById("profilePicture");
+      img.src = URL.createObjectURL(archivo);
+    }
+  </script>
+
+  <script src="../Js/CrearPerro.js"></script>
 </body>
 </html>
