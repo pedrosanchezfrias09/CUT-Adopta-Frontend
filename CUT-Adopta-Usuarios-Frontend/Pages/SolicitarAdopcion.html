@@ -5,10 +5,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Formulario de Adopción</title>
     <link rel="stylesheet" href="../Styles/SolicitarAdopcion.css">
-    <link rel="stylesheet" href="../Styles/login.css">
 </head>
 <body>
     
+    <div id="header-container"></div>
+
+<script>
+    fetch('header.html')
+        .then(response => response.text())
+        .then(data => {
+            document.getElementById('header-container').innerHTML = data;
+        })
+        .catch(error => console.log('Error cargando el encabezado:', error));
+</script>
+
 <!-- <div class="contenedor_1">
 
         <button class="inicio">← Atrás</button>
