@@ -4,17 +4,23 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <link rel="stylesheet" href="../Styles/CrearPerro.css">
+  <link rel="stylesheet" href="../Styles/galeriaDeInicioLog.css">
+
+  <!-- Fuentes de Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Kaushan+Script&display=swap" rel="stylesheet">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
+
   <title>Solicitar Publicación</title>
 </head>
-<body>
-  <div class="contenedor_1">
-    <button class="inicio">← Atrás</button>
-    <script>
-      document.querySelector('.inicio').addEventListener('click', function () {
-        window.location.href = 'galeriaDeInicioLog.html';
-      });
-    </script>
-  </div>
+<body class="cuerpoPagina">
+  
+  <div id="header-container"></div>
 
   <div class="ContainerPerfil">
     <div class="wrapper">
@@ -29,12 +35,12 @@
 
         <div class="textosIzquierda">
           <div class="nombre">
-            <label class="ApartadoEnNegritas" for="fullName">Nombre:</label>
+            <label class="ApartadoEnNegritas" for="fullName">Nombre</label>
             <input id="fullName" placeholder="[Nombre del Perro]" class="apartados" />
           </div>
           <hr />
           <div class="estado">
-            <label class="ApartadoEnNegritas" for="estado">Estado:</label><br />
+            <label class="ApartadoEnNegritas" for="estado">Estado</label><br />
             <select class="apartados" id="estado">
               <option value="disponible">Disponible</option>
               <option value="pendiente">Pendiente</option>
@@ -50,7 +56,7 @@
 
       <div class="SeccionDerecha">
         <div class="BloqueSuperior">
-          <h3>Información General</h3>
+          <h3 class="titulos">Información General</h3>
           <hr />
           <div class="emaiilYTelefono">
             <div class="caja">
@@ -80,7 +86,7 @@
 
         <div class="BloqueInferior">
           <div class="Izquierda">
-            <h3>Datos Médicos</h3>
+            <h3 class="titulos">Datos Médicos</h3>
             <hr />
             <div class="form-check">
               <input class="form-check-input" type="checkbox" id="vacunado" />
@@ -110,5 +116,34 @@
   </script>
 
   <script src="../Js/CrearPerro.js"></script>
+
+  <div id="footer-container"></div>
+
+  <script>
+    fetch('Encabezado.html')
+      .then(response => response.text())
+      .then(data => {
+        document.getElementById('header-container').innerHTML = data;
+      })
+      .catch(error => console.error('Error cargando el encabezado:', error));
+
+       fetch('Footer.html')
+      .then(response => response.text())
+      .then(data => {
+        document.getElementById('footer-container').innerHTML = data;
+      })
+      .catch(error => console.error('Error cargando el encabezado:', error));
+  </script>
+
+    <script src="../Js/Encabezado.js"></script>
+    <script>
+    fetch('Encabezado.html')
+        .then(response => response.text())
+        .then(data => {
+        document.getElementById('header-container').innerHTML = data;
+        inicializarEncabezado(); // Aquí se inicializa el encabezado
+        });
+    </script>
+
 </body>
 </html>

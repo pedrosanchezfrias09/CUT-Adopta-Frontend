@@ -3,22 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Formulario de Adopción</title>
-    <link rel="stylesheet" href="../Styles/SolicitarAdopcion.css">
-    <link rel="stylesheet" href="../Styles/login.css">
-</head>
-<body>
-    
-<!-- <div class="contenedor_1">
+    <link rel="stylesheet" href="../Styles/solicitarAdopcion.css">
+    <link rel="stylesheet" href="../Styles/galeriaDeInicioLog.css">
 
-        <button class="inicio">← Atrás</button>
-        <script>
-            document.querySelector('.inicio').addEventListener('click', function() {
-                window.history.back();
-            });
-        </script>
-        <button class="menu-toggle"><img id="1" src="../Assets/menu.png" alt="menu"></button>
-</div> -->
+    <!-- Fuentes de Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kaushan+Script&display=swap" rel="stylesheet">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
+    <title>Formulario de Adopción</title>
+
+</head>
+<body class="cuerpoPagina">
+
+    <div id="header-container"></div>
 
 <div class="form-container">
     <h2 class="titulo">Formulario de Adopción</h2>
@@ -26,52 +28,52 @@
         <div class="form-grid">
             <div class="column">
                 <div class="form-group">
-                    <label>Nombres y Apellidos *</label>
-                    <input type="text" required>
+                    <label class="rellenar" >Nombres y Apellidos *</label>
+                    <input class="poner" type="text" required>
                 </div>
                 <div class="form-group">
-                    <label>Fecha de nacimiento *</label>
-                    <input type="date" required>
+                    <label class="rellenar">Fecha de nacimiento *</label>
+                    <input class="poner" type="date" required>
                 </div>
                 <div class="form-group">
-                    <label>Estado *</label>
-                    <input type="text" required>
+                    <label class="rellenar">Estado *</label>
+                    <input  class="poner" type="text" required>
                 </div>
                 <div class="form-group">
-                    <label>Ciudad *</label>
-                    <input type="text" required>
+                    <label class="rellenar">Ciudad *</label>
+                    <input class="poner" type="text" required>
                 </div>
                 <div class="form-group">
-                    <label>Calle *</label>
-                    <input type="text" required>
+                    <label class="rellenar">Calle *</label>
+                    <input class="poner" type="text" required>
                 </div>
                 <div class="form-group">
-                    <label>Colonia *</label>
-                    <input type="text" required>
+                    <label class="rellenar">Colonia *</label>
+                    <input class="poner" type="text" required>
                 </div>
                 <div class="form-group">
-                    <label>Código Postal *</label>
-                    <input type="text" required>
+                    <label class="rellenar">Código Postal *</label>
+                    <input class="poner" type="text" required>
                 </div>
                 <div class="form-group">
-                    <label>Numero de Casa *</label>
-                    <input type="text" required>
+                    <label class="rellenar">Numero de Casa *</label>
+                    <input class="poner" type="text" required>
                 </div>
                 
                 <div class="form-group">
-                    <label>Edad *</label>
-                    <input type="number" required>
+                    <label class="rellenar">Edad *</label>
+                    <input class="poner" type="number" required>
                 </div>
                 <div class="form-group"> 
-                    <label>Adjunta tu credencial *</label> 
-                    <input type="file" accept="image/*" required>
+                    <label class="rellenar">Adjunta tu credencial *</label> 
+                    <input class="poner" type="file" accept="image/*" required>
                 </div>
             </div>
 
             <div class="column">
                 <div class="form-group">
-                    <label>¿Vives en casa o departamento? *</label>
-                    <select required>
+                    <label class="rellenar">¿Vives en casa o departamento? *</label>
+                    <select class="escoger" required>
                         <option value="">Selecciona</option>
                         <option value="casa_propia">Casa propia</option>
                         <option value="casa_rentada">Casa rentada</option>
@@ -80,20 +82,20 @@
                     </select>
                 </div>
                 <div class="form-group">
-                    <label>¿Cuántas veces saldrá a pasear al día? *</label>
-                    <input type="text" required>
+                    <label class="rellenar">¿Cuántas veces saldrá a pasear al día? *</label>
+                    <input class="poner" type="text" required>
                 </div>
                 <div class="form-group">
-                    <label>Ya has adoptado en Cut-Adopta? *</label>
-                    <select required>
+                    <label class="rellenar">Ya has adoptado en Cut-Adopta? *</label>
+                    <select class="escoger" required>
                         <option value="">Selecciona</option>
                         <option value="si">Sí</option>
                         <option value="no">No</option>
                     </select>
                 </div>
                 <div class="form-group">
-                    <label>Si rentas, ¿tienes permiso del casero para tener perro? *</label>
-                    <select required>
+                    <label class="rellenar">Si rentas, ¿tienes permiso del casero para tener perro? *</label>
+                    <select class="escoger" required>
                         <option value="">Selecciona</option>
                         <option value="si">Sí</option>
                         <option value="no">No</option>
@@ -101,34 +103,63 @@
                     </select>
                 </div>
                 <div class="form-group">
-                    <label>¿Tienes más animales? ¿Cuántos? *</label>
-                    <input type="text" required>
+                    <label class="rellenar">¿Tienes más animales? ¿Cuántos? *</label>
+                    <input class="poner" type="text" required>
                 </div>
                 <div class="form-group">
-                    <label>Celular *</label>
-                    <input type="tel" required>
+                    <label class="rellenar">Celular *</label>
+                    <input class="poner" type="tel" required>
                 </div>
                 <div class="form-group">
-                    <label>Email *</label>
-                    <input type="email" required>
+                    <label class="rellenar">Email *</label>
+                    <input class="poner" type="email" required>
                 </div>
                 <div class="form-group">
-                    <label>Profesión *</label>
-                    <input type="text" required>
+                    <label class="rellenar">Profesión *</label>
+                    <input class="poner" type="text" required>
                 </div>
             </div>
         </div>
 
         <div class="form-group full-width">
-            <label>¿Por qué quieres adoptar a este perro? *</label>
+            <label class="rellenar">¿Por qué quieres adoptar a este perro? *</label>
             <textarea rows="3" required></textarea>
         </div>
 
         <div class="submit-btn">
-            <button type="submit">Enviar</button>
+            <button class="boton" type="submit">Enviar</button>
         </div>
     </form>
 </div>
 
+<div id="footer-container"></div>
+
+<script>
+    fetch('Encabezado.html')
+      .then(response => response.text())
+      .then(data => {
+        document.getElementById('header-container').innerHTML = data;
+      })
+      .catch(error => console.error('Error cargando el encabezado:', error));
+
+       fetch('Footer.html')
+      .then(response => response.text())
+      .then(data => {
+        document.getElementById('footer-container').innerHTML = data;
+      })
+      .catch(error => console.error('Error cargando el encabezado:', error));
+  </script>
+
+    <script src="../Js/Encabezado.js"></script>
+    <script>
+    fetch('Encabezado.html')
+        .then(response => response.text())
+        .then(data => {
+        document.getElementById('header-container').innerHTML = data;
+        inicializarEncabezado(); // Aquí se inicializa el encabezado
+        });
+    </script>
+
 </body>
+
 </html>

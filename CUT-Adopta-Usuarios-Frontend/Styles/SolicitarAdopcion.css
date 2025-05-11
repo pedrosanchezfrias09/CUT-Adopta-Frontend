@@ -1,22 +1,12 @@
 /* Estilos generales */
-body {
-    font-family: Arial, sans-serif;
-    background-color: #e0e0e0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    margin: 0;
-}
-
 .titulo {
-    font-size: 20px;
+    font-size: 30px;
     font-weight: bold;
-    color: #333;
+    color: black;
     padding-bottom: 5px; /* Espacio entre el texto y la línea */
     border-bottom: 3px solid #BF592B; /* Color de la línea */
-
-  
+    font-family: "Poppins", sans-serif;
+    margin-bottom: 20px;
     max-width: 100%; /* Evita desbordamiento */
     white-space: normal; /* Permite salto de línea en móviles */
     overflow-wrap: break-word; /* Asegura que el texto no se esconda */
@@ -27,17 +17,17 @@ body {
     top: 0;
     text-align: center;
     width: 100%;
-    background: #e0e0e0; /* Color de fondo para que no se mezcle */
+    background: #E7F0F1; /* Color de fondo para que no se mezcle */
     z-index: 10; /* Asegura que esté por encima */
 }
 /* Contenedor del formulario */
 .form-container {
-    background: #e0e0e0;
+    background: #E7F0F1;
     padding: 20px;
     border-radius: 8px;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-    width: 60%;
-    max-width: 800px;
+    width: 100%;
+    max-width: 1000px;
+    margin: auto;
 }
 
 /* Título */
@@ -48,7 +38,7 @@ h2 {
 /* Diseño de dos columnas */
 .form-grid {
     display: flex;
-    gap: 20px;
+    gap: 50px;
 }
 
 /* Columnas */
@@ -66,18 +56,37 @@ h2 {
 }
 
 /* Etiquetas */
-label {
+.rellenar {
     font-weight: bold;
     margin-bottom: 5px;
 }
 
 /* Estilos para inputs y textarea */
-input, select, textarea {
+textarea {
     padding: 8px;
     border: 2px solid #BF592B;
     border-radius: 5px;
-    background-color: #e0e0e0;
+}
 
+.poner, .escoger{
+    padding: 10px !important; 
+    border: 2px solid #BF592B !important;
+    border-radius: 20px !important;
+    font-family: Poppins, sans-serif !important;
+    width: 95% !important;
+    background-color: white !important;
+}
+
+input[type="date"], input[type="tel"], input[type="email"]{
+    height: 40px !important;
+}
+
+.escoger{
+    padding: 10px !important; 
+    border: 2px solid #BF592B !important;
+    border-radius: 20px !important;
+    font-family: Poppins, sans-serif !important;
+    width: 100% !important;
 }
 
 /* Campos de ancho completo */
@@ -92,7 +101,7 @@ input, select, textarea {
     margin-top: 15px;
 }
 
-button {
+.boton {
     padding: 10px 20px;
     border: 2px solid #BF592B;
     background-color: #BF592B;
@@ -100,10 +109,14 @@ button {
     font-size: 16px;
     border-radius: 5px;
     cursor: pointer;
+    font-family: Poppins, sans-serif;
+    font-weight: 700;
 }
 
-button:hover {
-    background-color: #e0e0e0;
+.boton:hover {
+    background-color: black;
+    color:white;
+    border: 2px solid #BF592B;
 }
 
 /* RESPONSIVE: Ajustar a una columna en pantallas pequeñas */

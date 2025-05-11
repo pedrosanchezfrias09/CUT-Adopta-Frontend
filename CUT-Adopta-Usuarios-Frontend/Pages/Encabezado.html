@@ -1,0 +1,107 @@
+<div class="contenedor_1">
+        <img id="0" src="../Assets/Huella blanca.png" alt="Huella Blanca">
+        <h1 class="nombrePagina">CUT-Adopta</h1>
+    </div>
+
+    <div class="contenedor_2">
+        <button class="menu-toggle"><img id="5" src="../Assets/menu.png" alt="menu"></button>
+        <!-- Botón con imagen, invisible excepto por el icono -->
+        <button id="toggleFiltersButton" class="invisible-button">
+            <img id="1" src="../Assets/filtro.png" alt="menu">
+        </button>
+
+        <input type="text" class="buscador" id="buscador" placeholder="Buscar">
+
+        <a href="#" class="buscar">
+            <img id="2" src="../Assets/icono-buscar.png" alt="Buscar">
+        </a>
+
+        <a href="donarDesarrollo.html" class="donar">Donar</a>
+        <a href="PerfilUsuarioInputs.html" class="menu-toggle"><img src="../Assets/avatar.png" alt="Perfil de usuario" style="width: 40px,; height: 40px; margin-top: 15px;"></a>
+    </div>
+
+    <div class="overlay"></div>
+    <!-- Menú desplegable -->
+    <nav class="menu-container">
+        <div class="menu-item">
+            <button class="menu-btn">Tema</button>
+            <div class="submenu">
+                <a href="galeriaDeInicioOscuroInvitado.html">Oscuro</a>
+                <a href="galeriaDeInicioLog.html">Claro</a>
+            </div>
+        </div>
+        
+        <div class="menu-item">
+            <p style="font-size: 1.6rem; color: black; font-weight: bold;">Traducir</p>
+            <div id="google_translate_element"></div>            
+        </div>
+    </nav>
+
+    <div class="contenedor_3">
+        <a href="galeriaDeInicioLog.html" class="opcionPrincipal">Galería<br>de Adopción</a>
+        <a href="CrearPerro.html" class="opciones">Solicitar<br>Publicación</a>
+        <a href="SolicitarAdopcion.html" class="opciones">Seguimiento<br>de Trámites</a>
+    </div>
+
+
+
+    <!-- Contenedor de filtros oculto inicialmente -->
+    <div class="contenedorFiltros">
+        <div id="filtersContainer" class="filters-container">
+            <h2>Filtros</h2>
+            <form id="filterForm">
+                <!-- Filtro de Nombre -->
+                <div id="filtroNombre" class="filter-group">
+                    <label for="name">Nombre:</label>
+                    <input type="text" id="name" name="name" placeholder="Introduce un nombre">
+                </div>
+
+                <!-- Rango de Edad -->
+                <div class="filter-group">
+                    <label>Edad:</label>
+                    <div class="range-group">
+                        <input type="number" id="minAge" name="minAge" min="0" placeholder="Mínima">
+                        <span>–</span>
+                        <input type="number" id="maxAge" name="maxAge" min="0" placeholder="Máxima">
+                    </div>
+                </div>
+
+                <!-- Rango de Talla -->
+                <div class="filter-group">
+                    <label>Talla (cm):</label>
+                    <div class="range-group">
+                        <input type="number" id="minSize" name="minSize" min="0" placeholder="Mínima">
+                        <span>–</span>
+                        <input type="number" id="maxSize" name="maxSize" min="0" placeholder="Máxima">
+                    </div>
+                </div>
+
+                <!-- Selección de Sexo -->
+                <div class="filter-group">
+                    <label for="gender">Sexo:</label>
+                    <select id="gender" name="gender">
+                        <option value="">Cualquiera</option>
+                        <option value="Macho">Macho</option>
+                        <option value="Hembra">Hembra</option>
+                    </select>
+                </div>
+
+                <!-- Selección de Esterilización -->
+                <div class="filter-group">
+                    <label for="sterilized">Esterilización:</label>
+                    <select id="sterilized" name="sterilized">
+                        <option value="">Cualquiera</option>
+                        <option value="Esterilizado">Esterilizado</option>
+                        <option value="Sin esterilizar">Sin esterilizar</option>
+                    </select>
+                </div>
+
+                <!-- Botón Aplicar -->
+                <div class="filter-group">
+                    <button type="submit" class="apply-button">Aplicar Filtros</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <a href="dogclassifier://" class="identificador">🐕</a>

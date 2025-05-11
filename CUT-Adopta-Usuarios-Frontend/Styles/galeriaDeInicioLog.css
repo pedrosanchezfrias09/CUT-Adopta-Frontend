@@ -36,17 +36,19 @@
 
 /*Huella del Título*/
 [id="0"]{
-    width: 75px;
-    height: 70px;
-    margin-right: 5px;
-    margin-top: 10px;
+    width: 75px !important;
+    height: 70px !important;
+    margin-right: 5px !important;
+    margin-top: 10px !important;
 }
 
 /*CUT-Adopta*/
 .nombrePagina{
     font-family: "kaushan Script", sans-serif;
-    text-align: center;
+    text-align: center !important;
     color: white;
+    margin-top: auto;
+    margin-bottom: auto;
 }
 
 
