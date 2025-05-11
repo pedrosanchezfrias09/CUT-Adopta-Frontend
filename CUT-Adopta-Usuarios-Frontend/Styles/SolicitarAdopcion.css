@@ -1,21 +1,11 @@
 /* Estilos generales */
-body {
-    font-family: Arial, sans-serif;
-    background-color: #e0e0e0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    margin: 0;
-}
-
 .titulo {
     font-size: 30px;
     font-weight: bold;
     color: black;
     padding-bottom: 5px; /* Espacio entre el texto y la línea */
     border-bottom: 3px solid #BF592B; /* Color de la línea */
-
+    margin-bottom: 20px;
   
     max-width: 100%; /* Evita desbordamiento */
     white-space: normal; /* Permite salto de línea en móviles */
@@ -36,9 +26,9 @@ body {
     background: #E7F0F1;
     padding: 20px;
     border-radius: 8px;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-    width: 60%;
-    max-width: 800px;
+    width: 100;
+    max-width: 1000px;
+    margin: auto;
 }
 
 /* Título */
