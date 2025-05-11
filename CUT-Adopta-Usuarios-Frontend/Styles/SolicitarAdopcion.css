@@ -1,19 +1,30 @@
 /* Estilos generales */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #e0e0e0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
 .titulo {
     font-size: 30px;
     font-weight: bold;
     color: black;
     padding-bottom: 5px; /* Espacio entre el texto y la línea */
     border-bottom: 3px solid #BF592B; /* Color de la línea */
-    font-family: "Poppins", sans-serif;
-    margin-bottom: 20px;
+
+  
     max-width: 100%; /* Evita desbordamiento */
     white-space: normal; /* Permite salto de línea en móviles */
     overflow-wrap: break-word; /* Asegura que el texto no se esconda */
+    
 }
 
 .titulo {
-    position: relative; /* O 'fixed' si quieres que siempre se vea */
+    position: static; /* O 'fixed' si quieres que siempre se vea */
     top: 0;
     text-align: center;
     width: 100%;
@@ -25,9 +36,9 @@
     background: #E7F0F1;
     padding: 20px;
     border-radius: 8px;
-    width: 100%;
-    max-width: 1000px;
-    margin: auto;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    width: 60%;
+    max-width: 800px;
 }
 
 /* Título */
