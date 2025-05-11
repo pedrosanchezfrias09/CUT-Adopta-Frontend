@@ -8,17 +8,6 @@
 </head>
 <body>
     
-    <div id="header-container"></div>
-
-<script>
-    fetch('header.html')
-        .then(response => response.text())
-        .then(data => {
-            document.getElementById('header-container').innerHTML = data;
-        })
-        .catch(error => console.log('Error cargando el encabezado:', error));
-</script>
-
 <!-- <div class="contenedor_1">
 
         <button class="inicio">← Atrás</button>
