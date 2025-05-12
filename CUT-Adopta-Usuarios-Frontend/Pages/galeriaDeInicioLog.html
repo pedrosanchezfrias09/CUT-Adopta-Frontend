@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../Styles/galeriaDeInicioLog.css">
+    <link rel="stylesheet" href="../Styles/publicaciones.css">
 
     <!-- Fuentes de Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -13,6 +14,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
+
 
     <title>Galeria de Inicio</title>
 </head>
@@ -136,6 +139,44 @@ function initTraduccion() {
         <a href="SolicitarAdopcion.html" class="opciones">Seguimiento<br>de Trámites</a>
     </div>
 
+    <section>
+        <h2>Publicaciones</h2>
+        <button onclick="toggleSeccion('seccion-ver')">Ver publicaciones</button>
+        <button onclick="toggleSeccion('seccion-crear')">Crear publicación</button>
+        <button onclick="toggleSeccion('seccion-buscar')">Buscar publicación por ID</button>
+      </section>
+      
+      <!-- Sección: Ver publicaciones -->
+      <section id="seccion-ver" style="display: none;">
+        <h3>Publicaciones</h3>
+        <div id="publicaciones-container"></div>
+      </section>
+      
+      <!-- Sección: Crear nueva publicación -->
+      <section id="seccion-crear" style="display: none;">
+        <h3>Crear nueva publicación</h3>
+        <form id="form-crear">
+          <input type="text" id="titulo" placeholder="Título" required><br>
+          <textarea id="contenido" placeholder="Contenido" required></textarea><br>
+          <input type="number" id="autor_id" placeholder="ID del autor" required><br>
+          <button type="submit">Publicar</button>
+        </form>
+      </section>
+      
+      <!-- Sección: Buscar publicación -->
+      <section id="seccion-buscar" style="display: none;">
+        <h3>Buscar publicación por ID</h3>
+        <form id="form-buscar">
+          <input type="number" id="buscar-id" placeholder="ID de la publicación" required>
+          <button type="submit">Buscar</button>
+        </form>
+        <div id="resultado-busqueda"></div>
+      </section>
+      
+      
+      
+
+    <div id="contenedor-publicaciones"></div>
 
 
     <!-- Contenedor de filtros oculto inicialmente -->
